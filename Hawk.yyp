@@ -27,6 +27,7 @@
     {"id":{"name":"spr_hawk","path":"sprites/spr_hawk/spr_hawk.yy",},"order":0,},
     {"id":{"name":"spr_nebula_4_blur","path":"sprites/spr_nebula_4_blur/spr_nebula_4_blur.yy",},"order":16,},
     {"id":{"name":"NonPlayer","path":"objects/NonPlayer/NonPlayer.yy",},"order":13,},
+    {"id":{"name":"LightManager","path":"objects/LightManager/LightManager.yy",},"order":17,},
     {"id":{"name":"spr_nebula_2","path":"sprites/spr_nebula_2/spr_nebula_2.yy",},"order":5,},
     {"id":{"name":"spr_dust_2","path":"sprites/spr_dust_2/spr_dust_2.yy",},"order":8,},
     {"id":{"name":"Drone","path":"objects/Drone/Drone.yy",},"order":8,},

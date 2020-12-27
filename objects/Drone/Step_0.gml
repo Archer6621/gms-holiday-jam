@@ -26,16 +26,12 @@ if (drone != noone) {
 var deviation = angle_difference(image_angle, point_direction(x, y, lead_x, lead_y));
 
 
-
 if (deviation < 0) {
 	go_left = 1;	
 }
 if (deviation > 0) {
 	go_right = 1;	
 }
-
-
-
 go_forward = 1;
 
 

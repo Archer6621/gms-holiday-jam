@@ -8,3 +8,15 @@ if (x > room_width + sprite_width or x < -sprite_width) {
 		instance_destroy();	
 	}
 }
+
+// collision map check
+var current = ds_map_find_first(collision_map);
+while (current != undefined) {
+	var next = ds_map_find_next(collision_map, current);
+	if (not collision_map[? current]) {
+		ds_map_delete(collision_map, current);
+	} else {
+		collision_map[? current] = false;
+	}
+	current = next;
+}

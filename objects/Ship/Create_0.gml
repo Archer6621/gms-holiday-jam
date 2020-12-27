@@ -11,7 +11,7 @@ knockout_speed = 2;
 
 // Physics
 density = 0.5;
-elasticity = 0.4;
+elasticity = 1.5;
 
 // Initializations
 turn_acceleration = 0;

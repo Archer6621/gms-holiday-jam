@@ -12,6 +12,17 @@ function array_append(array, element) {
 	return array;
 }
 
+function array_concat(array, other_array) {
+	var new_array[array_length(array) + array_length(other_array)];
+	for(var i = 0; i < array_length(array); i += 1) {
+		new_array[i] = array[i];
+	}
+	for(var i = 0; i < array_length(other_array); i += 1) {
+		new_array[i + array_length(array)] = other_array[i];
+	}
+	return new_array;
+}
+
 function array_choose(array) {
 	return array[irandom(array_length(array) - 1)];	
 }

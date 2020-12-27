@@ -11,8 +11,8 @@ image_xscale = 1;
 image_yscale = image_xscale;
 
 // Physics
-density = 5;
-elasticity = 0.8;
+density = 500;
+elasticity = 1.0;
 p_friction = 0.000001;
 
 

@@ -7,7 +7,7 @@ rotation_speed = 10 + random(20);
 
 // Physics
 density = 2;
-elasticity = 0.2;
+elasticity = 1.0;
 p_friction = 0.000001;
 
 // Initializations

@@ -35,7 +35,7 @@ create_env_layer([spr_dust], 0.85,  0.00001, 0.1, 0.6, 0.4, 360, 360, 0, c_white
 		create_env_layer([spr_nebula_3], 0.5, 0.000025, 4, 7, 0.5, 360, 360, 1, c_red, false),
 		create_env_layer([spr_nebula_2], 0.25, 0.000015, 8, 12, 2, 360, 360, 0.5, c_red, false)
 	]
-	create_stage_volume([Drone], 10000, 20000, 2000, 3, env_layers);
+	create_stage_volume([Drone], 10000, 20000, 2000, 1, env_layers);
 }
 
 {

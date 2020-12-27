@@ -5,9 +5,7 @@ event_inherited();
 
 start_light_color = c_black;
 end_light_color = c_black;
-light_color = c_black;
 start_light_radius = 0.0;
-light_radius = 0.0;
 start_life_span = 0.0;
 decay_function = noone;
 

@@ -16,13 +16,6 @@ if (drone != noone) {
 	}
 }
 
-//if (abs(y - drone.y) < proximity_threshold * sprite_height) {
-//	if (abs(drone.y - y) > 0) {
-//		lead_y += proximity_compensation * sprite_width / (drone.y - y);
-//	}
-//}
-
-
 var deviation = angle_difference(image_angle, point_direction(x, y, lead_x, lead_y));
 
 
@@ -33,8 +26,6 @@ if (deviation > 0) {
 	go_right = 1;	
 }
 go_forward = 1;
-
-
 
 // Inherit the parent event
 event_inherited();

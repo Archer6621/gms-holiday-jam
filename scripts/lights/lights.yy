@@ -6,7 +6,7 @@
     "path": "folders/Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "create_decaying_light",
+  "name": "lights",
   "tags": [],
   "resourceType": "GMScript",
 }

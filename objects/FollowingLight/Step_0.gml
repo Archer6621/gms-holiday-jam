@@ -1,7 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if (following != noone) {
+if (instance_exists(following)) {
 	x = following.x;
 	y = following.y;
+} else {
+	instance_destroy();
 }

@@ -3,11 +3,11 @@
 
 // Inherit the parent event
 event_inherited();
+create_following_light(id, c_red, 50);
+
 max_speed = 8;
 
 
 // Drone params
 proximity_threshold = 10;
 proximity_compensation = 200;
-
-show_debug_message(get_mass());

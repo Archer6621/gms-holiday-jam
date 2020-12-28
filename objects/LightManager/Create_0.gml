@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-global.max_lights = 8;
+global.max_lights = 80;
 global.light_manager = self.id;
 u_light_color = shader_get_uniform(light_shader, "light_color");
 u_light_radius = shader_get_uniform(light_shader, "light_radius");

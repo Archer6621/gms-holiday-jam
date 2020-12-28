@@ -5,7 +5,7 @@ varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
 varying vec2 screen_pos;
 
-const int MAX_LIGHTS = 8;
+const int MAX_LIGHTS = 80;
 
 uniform vec3 light_color[MAX_LIGHTS];
 uniform float light_radius[MAX_LIGHTS];
@@ -24,9 +24,10 @@ void main()
 		float diffuse = max(dot(normal, light_dir), 0.0);
 		
 		// Specular lighting
-		vec3 view_dir = vec3(0.0, 0.0, 1.0);	// From above
-		vec3 reflect_dir = reflect(-light_dir, normal);  
-		float spec = pow(max(dot(view_dir, reflect_dir), 0.0), 32.0);
+		vec3 view_dir = vec3(0.0, 0.0, 1.0);	// Straight from above
+		vec3 half_way_dir = normalize(light_dir + view_dir); // blinn-phong
+		float spec = pow(max(dot(normal, half_way_dir), 0.0), 64.0);
+		
 		
 	    float inv_light_dist = light_radius[i] / distance(light_pos[i], screen_pos);
 		total_light_color += inv_light_dist * (diffuse * light_color[i] + spec);

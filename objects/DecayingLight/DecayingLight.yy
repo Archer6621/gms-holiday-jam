@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Types",
+    "path": "folders/Objects/Lighting/Types.yy",
   },
   "resourceVersion": "1.0",
   "name": "DecayingLight",

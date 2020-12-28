@@ -9,7 +9,7 @@ camera_set_view_target(view_camera[0], Hawk)
 // Base background
 create_env_layer([spr_star_s, spr_star_m, spr_star_l], 0.01, 0.00015, 1, 1, 0, 0, 180, 0, c_white, true);
 create_env_layer([spr_dust], 0.85,  0.00001, 0.1, 0.6, 0.4, 360, 360, 0, c_white, true);
-//create_env_layer(spr_dust_2, 0.75,  0.0001, 1, 1, 0.0, 360, 360, 0, c_white, true);
+
 
 // Stage
 {

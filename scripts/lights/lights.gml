@@ -18,6 +18,7 @@ function create_basic_light(xx, yy, color, radius) {
 	light.y = yy;
 	light.light_color = color;
 	light.light_radius = radius;
+	light.light_intensity = 1.0;
 	return light;
 }
 
@@ -26,5 +27,6 @@ function create_following_light(instance, color, radius) {
 	light.following = instance;
 	light.light_color = color;
 	light.light_radius = radius;
+	light.light_intensity = 1.0;
 	return light;
 }

@@ -6,7 +6,9 @@ global.light_manager = self.id;
 u_light_color = shader_get_uniform(light_shader, "light_color");
 u_light_radius = shader_get_uniform(light_shader, "light_radius");
 u_light_pos = shader_get_uniform(light_shader, "light_pos");
+u_light_intensity = shader_get_uniform(light_shader, "light_intensity");
 
+light_intensity[global.max_lights - 1] = 0.0;
 light_pos[2 * global.max_lights - 1] = 0.0;
 light_color[3 * global.max_lights - 1] = 0.0;
 light_radius[global.max_lights - 1] = 0.0; 
@@ -19,15 +21,15 @@ for (var i = 0; i < global.max_lights; i += 1) {
 }
 
 function register_light() {
-		return ds_queue_dequeue(light_queue);
+	return ds_queue_dequeue(light_queue);
 }
 
 function free_light(index) {
-	set_light(index, 0, 0, c_black, 0);
+	set_light(index, 0, 0, c_black, 0, 0);
 	ds_queue_enqueue(light_queue, index);
 }
 
-function set_light(index, xx, yy, color, radius) {
+function set_light(index, xx, yy, color, radius, intensity) {
 	// position
 	light_pos[2 * index    ] = xx;
 	light_pos[2 * index + 1] = yy;
@@ -39,4 +41,7 @@ function set_light(index, xx, yy, color, radius) {
 	
 	// radius
 	light_radius[index] = radius;
+	
+	// radius
+	light_intensity[index] = intensity;
 }

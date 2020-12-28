@@ -9,6 +9,7 @@ const int MAX_LIGHTS = 80;
 
 uniform vec3 light_color[MAX_LIGHTS];
 uniform float light_radius[MAX_LIGHTS];
+uniform float light_intensity[MAX_LIGHTS];
 uniform vec2 light_pos[MAX_LIGHTS];
 uniform sampler2D normal;
 
@@ -30,7 +31,7 @@ void main()
 		
 		
 	    float inv_light_dist = light_radius[i] / distance(light_pos[i], screen_pos);
-		total_light_color += inv_light_dist * (diffuse * light_color[i] + spec);
+		total_light_color += light_intensity[i] * inv_light_dist * (diffuse * light_color[i] + spec);
 	}
 	
 	vec4 texture = texture2D(gm_BaseTexture, v_vTexcoord );

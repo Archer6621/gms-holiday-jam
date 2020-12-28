@@ -4,9 +4,11 @@
 var life = alarm_get(0) / (room_speed * start_life_span);
 if (decay_function == noone) {
 	//light_radius = life * start_light_radius;
+	light_intensity = life;
 	light_color = merge_color(end_light_color, start_light_color, life);
 } else {
 	var amount = decay_function(life);
-	//light_radius = amount * start_light_radius;	
+	//light_radius = amount * start_light_radius;
+	light_intensity = amount;
 	light_color = merge_color(end_light_color, start_light_color, amount);
 }

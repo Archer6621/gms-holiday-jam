@@ -12,5 +12,6 @@ decay_function = noone;
 function initialize() {
 	light_radius = start_light_radius;
 	light_color = start_light_color;
+	light_intensity = 1.0;
 	alarm_set(0, start_life_span * room_speed);
 }

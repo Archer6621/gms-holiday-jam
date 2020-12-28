@@ -7,7 +7,7 @@ var inv_y = room_height - hawk.y
 
 proximity = transition(inv_y, vol_start, vol_end, vol_transition);
 
-if (proximity < 0.01) {
+if (proximity < 0.0001) {
 	exit;	
 }
 

@@ -5,7 +5,7 @@
 event_inherited();
 create_following_light(id, c_red, 50, 0.5);
 
-max_speed = 8;
+max_speed += 1;
 
 
 // Drone params

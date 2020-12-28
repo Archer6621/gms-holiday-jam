@@ -5,7 +5,7 @@ event_inherited();
 // Constants
 acceleration_rate = 30;
 turn_acceleration_rate = 5000;
-max_speed = 7;
+max_speed = 6;
 max_turn_speed = 270;
 knockout_speed = 2;
 

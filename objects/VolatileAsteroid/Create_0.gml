@@ -6,4 +6,4 @@ event_inherited();
 
 fuse_proximity = 300;
 growth = 1 + random(3);
-fuse_time = growth / 2;
+fuse_time = growth / 3;

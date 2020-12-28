@@ -27,7 +27,11 @@ if (not ds_map_exists(collision_map, other.id)) {
 			rel_vspeed = -other.rel_vspeed;
 			bounce_dir = other.bounce_dir + 180;
 			motion_add(self.bounce_dir, self.elasticity * self.factor * self.ratio * self.rel_speed);
-			collision_map[? other.id] = true;
+			
+			// Need this check: it's possible for the other object to have destroyed its map already
+			if (ds_exists(collision_map, ds_type_map)) {
+				collision_map[? other.id] = true;
+			}
 		}
 	}
 } 

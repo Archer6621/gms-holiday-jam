@@ -1,3 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
-other.knock_out(0.5);
+
+event_perform(ev_collision, Rigidbody);
+with (other) {
+	knock_out(ceil(0.5 * other.image_xscale));	
+}

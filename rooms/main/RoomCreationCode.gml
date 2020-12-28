@@ -18,7 +18,7 @@ create_env_layer([spr_dust], 0.85,  0.00001, 0.1, 0.6, 0.4, 360, 360, 0, c_white
 		create_env_layer([spr_nebula], 0.45, 0.00010, 3.5, 6.5, 0.5, 360, 360, 0.5, c_navy, false),
 		create_env_layer([spr_nebula], 0.3,  0.00015, 3, 6, 0.5, 360, 360, 0.25, c_navy, false)
 	] 
-	create_stage_volume([Asteroid], 5000, 12000, 2000, 10, env_layers);
+	create_stage_volume([Asteroid, VolatileAsteroid], 5000, 12000, 2000, 30, env_layers);
 }
 
 {

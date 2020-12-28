@@ -1,7 +1,7 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function create_clustered_explosion(xx, yy, scale, count, spread){
-	create_decaying_light(xx, yy, c_orange, c_red, 200, 0.5);
+	create_decaying_light(xx, yy, c_orange, c_red, 200, 0.5, 2.0);
 	var central = instance_create_depth(xx, yy, 1, Explosion);
 	central.image_xscale = scale;
 	central.image_yscale = scale;

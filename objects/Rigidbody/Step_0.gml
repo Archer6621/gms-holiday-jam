@@ -5,11 +5,13 @@ speed = speed / (1 + dts * p_friction);
 
 if (x > room_width + sprite_width or x < -sprite_width) {
 	if (object_index != Hawk) {
-		instance_destroy();	
+		instance_destroy();
+		exit;
 	}
 }
 
 // collision map check
+
 var current = ds_map_find_first(collision_map);
 while (current != undefined) {
 	var next = ds_map_find_next(collision_map, current);

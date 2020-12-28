@@ -12,7 +12,7 @@ p_friction = 0.000001;
 
 // Initializations
 image_angle = random(360);
-image_xscale = 3//0.5 + random(3);
+image_xscale = 0.5 + random(3);
 image_yscale = image_xscale;
 
 // Initial motion

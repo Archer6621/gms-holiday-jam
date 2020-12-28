@@ -12,21 +12,21 @@ function create_decaying_light(xx, yy, start_color, end_color, radius, life_span
 	return light;
 }
 
-function create_basic_light(xx, yy, color, radius) {
+function create_basic_light(xx, yy, color, radius, intensity) {
 	var light = instance_create(BasicLight);
 	light.x = xx;
 	light.y = yy;
 	light.light_color = color;
 	light.light_radius = radius;
-	light.light_intensity = 1.0;
+	light.light_intensity = intensity;
 	return light;
 }
 
-function create_following_light(instance, color, radius) {
+function create_following_light(instance, color, radius, intensity) {
 	var light = instance_create(FollowingLight);
 	light.following = instance;
 	light.light_color = color;
 	light.light_radius = radius;
-	light.light_intensity = 1.0;
+	light.light_intensity = intensity;
 	return light;
 }

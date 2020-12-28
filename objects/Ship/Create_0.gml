@@ -17,3 +17,8 @@ elasticity = 1.5;
 turn_acceleration = 0;
 image_angle = 90;
 
+function knock_out(amount) {
+	if (alarm_ready(0)) {
+		alarm_set(0, room_speed * amount);
+	}
+}

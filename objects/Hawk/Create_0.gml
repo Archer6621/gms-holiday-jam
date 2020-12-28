@@ -3,4 +3,4 @@
 
 // Inherit the parent event
 event_inherited();
-create_following_light(id, c_green, 100);
+create_following_light(id, c_green, 100, 0.5);

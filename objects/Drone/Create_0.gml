@@ -3,7 +3,7 @@
 
 // Inherit the parent event
 event_inherited();
-create_following_light(id, c_red, 50);
+create_following_light(id, c_red, 50, 0.5);
 
 max_speed = 8;
 

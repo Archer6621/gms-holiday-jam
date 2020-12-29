@@ -87,7 +87,7 @@ function array_contains(array, element) {
 function print() {
 	var str = "";
 	for (var i = 0; i < argument_count; i++) {
-		str += string(argument[i]);	
+		str += string(argument[i]) + " ";	
 	}
 	show_debug_message(str);
 }

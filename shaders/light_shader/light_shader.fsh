@@ -27,7 +27,7 @@ void main()
 		// Specular lighting
 		vec3 view_dir = vec3(0.0, 0.0, 1.0);	// Straight from above
 		vec3 half_way_dir = normalize(light_dir + view_dir); // blinn-phong
-		float spec = pow(max(dot(normal, half_way_dir), 0.0), 64.0);
+		float spec = pow(max(dot(normal, half_way_dir), 0.0), 128.0);
 		
 		
 	    float inv_light_dist = light_radius[i] / distance(light_pos[i], screen_pos);

@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-if (proximity > 0.001) {
+if (proximity > 0.01) {
 	var cam = view_camera[0];
 	var cw = camera_get_view_width(cam) 
 	var ch = camera_get_view_height(cam)
@@ -53,11 +53,12 @@ if (proximity > 0.001) {
 		}
 		surfaces[s] = surf;
 	}
-
+	
 	// Drawing is done in one pass per variant
 	// This can be made even more efficient if we store the x/y indices per variant
 	// since then we only have to do a single pass through the grid
 	// but usually the on-screen grid is insignificantly small
+
 	for (var i = 0; i < array_length(surfaces); i += 1) {
 		var asw = sw * (1 - overlap);
 		var ash = sh * (1 - overlap);

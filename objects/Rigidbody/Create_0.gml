@@ -17,6 +17,7 @@ col_dir = 0;
 rel_speed = 0;
 rel_hspeed = 0;
 rel_vspeed = 0;
+behaviour_disabled = false;
 
 function get_mass() {
 	return image_xscale * image_yscale * density;	

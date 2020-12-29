@@ -5,3 +5,5 @@ global.game_manager = self.id;
 global.frames = 0;
 global.hawk = noone;
 global.dts = 1 / room_speed;
+
+audio_play_sound(music_1,0,1);

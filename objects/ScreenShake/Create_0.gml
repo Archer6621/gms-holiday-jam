@@ -1,3 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-create_clustered_explosion(x, y, image_xscale, 20, 0.4);
+
+camera_set_view_target(view_camera[0],self);
+
+alarm_set(0, room_speed);

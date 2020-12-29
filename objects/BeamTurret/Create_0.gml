@@ -10,10 +10,11 @@ image_xscale = 2;
 image_yscale = image_xscale;
 density = 10;
 p_friction = 5;
-interval = 2;
+interval = 1.0;
 warn_interval = 0.25;
+initialized = false;
 
 hole_x = lengthdir_x(sprite_width * 0.4, image_angle);
 hole_y = lengthdir_y(sprite_width * 0.4, image_angle);
 
-alarm_set(1, random(interval * room_speed));
+alarm_set(0, random(0.25 * interval * room_speed));

@@ -3,4 +3,5 @@
 
 // Inherit the parent event
 event_inherited();
+initialize_sound(hawk_engine, 1.5);
 create_following_light(id, c_green, 100, 0.5);

@@ -36,3 +36,15 @@ if (speed > max_speed) {
 }
 #endregion
 
+// Sound
+//if (audio_emitter_free(engine_emitter)) {
+//	show_debug_message("playing");
+//	audio_play_sound_on(engine_emitter, engine_sound, true, 5);	
+//}
+audio_emitter_position(engine_emitter, x, y, 0.0);
+audio_emitter_velocity(engine_emitter, hspeed, vspeed, 0.0);
+if (go_forward) {
+	audio_emitter_gain(engine_emitter, 1.0);	
+} else {
+	audio_emitter_gain(engine_emitter, 0.0);	
+}

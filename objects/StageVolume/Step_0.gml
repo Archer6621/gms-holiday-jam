@@ -2,8 +2,12 @@
 // You can write your code in this editor
 
 // Find Hawk and spawn stuff ahead
-var hawk = instance_find(Hawk, 0);
-var inv_y = room_height - hawk.y
+
+if (not instance_exists(global.hawk)) {
+	exit;	
+}
+
+var inv_y = room_height - global.hawk.y
 
 proximity = transition(inv_y, vol_start, vol_end, vol_transition);
 

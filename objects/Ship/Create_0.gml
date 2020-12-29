@@ -17,8 +17,21 @@ elasticity = 1.5;
 turn_acceleration = 0;
 image_angle = 90;
 
+// Sound
+engine_emitter = -1;
+engine_sound = undefined;
+
 function knock_out(amount) {
 	if (alarm_ready(0)) {
 		alarm_set(0, room_speed * amount);
+	}
+}
+
+function initialize_sound(sound, pitch) {
+	if (not audio_emitter_exists(engine_emitter) and sound != undefined) {
+		engine_sound = sound;
+		self.engine_emitter = audio_emitter_create();
+		audio_emitter_pitch(engine_emitter, pitch);
+		audio_play_sound_on(engine_emitter, engine_sound, true, 0);
 	}
 }

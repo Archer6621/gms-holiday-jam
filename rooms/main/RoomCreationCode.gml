@@ -1,10 +1,12 @@
 // Hawk
 instance_create_layer(room_width/2, room_height - 100, "Instances", Hawk);
+instance_create(SuperNova);
 show_debug_overlay(true);
+
 // Camera
 zoom = 1.0;
 camera_set_view_size(view_camera[0], view_wport[0] * zoom, view_hport[0] * zoom)
-camera_set_view_target(view_camera[0], Hawk)
+camera_set_view_target(view_camera[0], Hawk);
 
 // Base background
 create_env_layer([spr_star_s, spr_star_m, spr_star_l], 0.01, 0.00015, 1, 1, 0, 0, 180, 0, c_white, true);
@@ -18,7 +20,7 @@ create_env_layer([spr_dust], 0.85,  0.00001, 0.1, 0.6, 0.4, 360, 360, 0, c_white
 		create_env_layer([spr_nebula], 0.45, 0.00010, 3.5, 6.5, 0.5, 360, 360, 0.5, c_navy, false),
 		create_env_layer([spr_nebula], 0.3,  0.00015, 3, 6, 0.5, 360, 360, 0.25, c_navy, false)
 	] 
-	create_stage_volume([Asteroid, VolatileAsteroid], 3000, 12000, 2000, 20, env_layers);
+	create_stage_volume([Asteroid, VolatileAsteroid], 3000, 12000, 2000, 10, env_layers);
 }
 
 {
@@ -47,4 +49,3 @@ create_env_layer([spr_dust], 0.85,  0.00001, 0.1, 0.6, 0.4, 360, 360, 0, c_white
 	]
 	create_stage_volume([BeamTurret], 16000, 30000, 4000, 3, env_layers);
 }
-//

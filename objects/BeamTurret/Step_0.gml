@@ -5,10 +5,11 @@
 event_inherited();
 
 if (not is_on_screen(2 * sprite_width)) {
-	alarm_set(1, alarm_get(1) + 1);	
+	alarm_pause(0);
+	alarm_pause(1);
 }
 
 if (behaviour_disabled) {
-	alarm_set(1, interval * room_speed);
 	alarm_set(0, interval * room_speed);
+	alarm_set(1, interval * room_speed);
 }

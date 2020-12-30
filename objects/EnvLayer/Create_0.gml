@@ -24,7 +24,6 @@ grid = []
 rot_grid = []
 depth_color = c_white;
 depth_blend = 0;
+grid_size = 4 * array_length(surfaces);
 
-
-// Pre-generate array
 

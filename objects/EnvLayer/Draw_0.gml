@@ -2,15 +2,17 @@
 // You can write your code in this editor
 if (proximity > 0.01) {
 	var cam = view_camera[0];
-	var cw = camera_get_view_width(cam) 
-	var ch = camera_get_view_height(cam)
-	var cx = par * camera_get_view_x(cam);
-	var cy = par * camera_get_view_y(cam);
+	var cw = camera_get_view_width(cam);
+	var ch = camera_get_view_height(cam);
+	var cx = camera_get_view_x(cam);
+	var cy = camera_get_view_y(cam);
+	var pcx = par * cx;
+	var pcy = par * cy;
 	var dts = 1 / room_speed;
 
 	rot += dts * tile_rotation_dynamic;
 	col = merge_colour(c_white, depth_color, depth_blend);
-
+	random_set_seed(instance_count);
 	for (var s = 0; s < array_length(surfaces); s+=1) {
 		var surf = surfaces[s];
 		if (surface_exists(surf)) {
@@ -58,24 +60,22 @@ if (proximity > 0.01) {
 	// This can be made even more efficient if we store the x/y indices per variant
 	// since then we only have to do a single pass through the grid
 	// but usually the on-screen grid is insignificantly small
-
 	for (var i = 0; i < array_length(surfaces); i += 1) {
 		var asw = sw * (1 - overlap);
 		var ash = sh * (1 - overlap);
-		var i_w = ceil(cx / asw)
-		var i_h = ceil(cy / ash)
+		var i_w = ceil(pcx / asw)
+		var i_h = ceil(pcy / ash)
 		var x_count = ceil((cw + 2 * sw) / asw);
 		var y_count = ceil((ch + 2 * sh) / ash);
-		random_set_seed(instance_count);
-		for (var i_x = -1; i_x < x_count + 1; i_x += 1) {
-			for (var i_y = -1; i_y < y_count + 1; i_y += 1) {
-				var g_x = modulo(i_h + i_y, 4 * array_length(surfaces));
-				var g_y = modulo(i_w + i_x, 4 * array_length(surfaces));
+		for (var i_x = 0; i_x < x_count + 2; i_x += 1) {
+			for (var i_y = 0; i_y < y_count + 2; i_y += 1) {
+				var g_x = (i_h + i_y) % grid_size;
+				var g_y = (i_w + i_x) % grid_size;
 				if (grid[g_x, g_y] == i) {
 					var surf = surfaces[grid[g_x, g_y]];
 					if (surface_exists(surf)) {
-						var surface_x = (i_w + i_x) * asw - (sw - asw) + (1 - par) * camera_get_view_x(cam);
-						var surface_y = (i_h + i_y) * ash - (sh - ash) + (1 - par) * camera_get_view_y(cam);
+						var surface_x = (i_w + i_x - 1) * asw - (sw - asw) + (1 - par) * cx;
+						var surface_y = (i_h + i_y - 1) * ash - (sh - ash) + (1 - par) * cy;
 						draw_surface_ext(surf, surface_x, surface_y, 1,  1, rot + rot_grid[g_x, g_y], col, proximity);	
 					}
 				}

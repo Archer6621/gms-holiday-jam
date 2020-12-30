@@ -7,8 +7,16 @@ var dts = 1 / room_speed;
 if (alarm_get(0) == -1) {
 	#region Input
 
+	if (can_use_afterburner() and use_afterburner) {
+		//create_spark(c_orange, x, y, 1, false);
+		motion_add(image_angle, 0.1 * dts * acceleration_rate);
+		part_particles_create(global.ps, x, y, global.afterburner_particle, 1);
+	}
+
 	if (go_forward) {
 		motion_add(image_angle, dts * acceleration_rate);
+		part_particles_create(global.ps, x, y, engine_trail_particle, 1);
+		part_particles_create(global.ps, x, y, global.default_engine_paticle, 1);
 	}
 	
 	if (go_back) {
@@ -29,6 +37,21 @@ if (alarm_get(0) == -1) {
 	image_angle += dts * 360 * knockout_speed;	
 }
 
+#region Resources
+if (use_afterburner) {
+	afterburner_charge -= dts * 1.0;
+} else {
+	afterburner_charge += dts * afterburner_charge_rate;
+}
+if (afterburner_charge < 0) {
+	afterburner_depleted = true;	
+}
+if (afterburner_charge > 0.5 * afterburner_capacity) {
+	afterburner_depleted = false;	
+}
+afterburner_charge = clamp(afterburner_charge, 0, afterburner_capacity);
+#endregion
+
 #region Limits
 if (speed > max_speed) {
 	motion_add(direction + 180, dts * acceleration_rate);
@@ -36,15 +59,21 @@ if (speed > max_speed) {
 }
 #endregion
 
-// Sound
-//if (audio_emitter_free(engine_emitter)) {
-//	show_debug_message("playing");
-//	audio_play_sound_on(engine_emitter, engine_sound, true, 5);	
-//}
+#region Sound
 audio_emitter_position(engine_emitter, x, y, 0.0);
 audio_emitter_velocity(engine_emitter, hspeed, vspeed, 0.0);
+audio_emitter_position(afterburner_emitter, x, y, 0.0);
+audio_emitter_velocity(afterburner_emitter, hspeed, vspeed, 0.0);
 if (go_forward) {
 	audio_emitter_gain(engine_emitter, 1.0);	
 } else {
 	audio_emitter_gain(engine_emitter, 0.0);	
 }
+
+if (can_use_afterburner() and use_afterburner)  {
+	audio_emitter_gain(afterburner_emitter, 2.0);		
+} else {
+	audio_emitter_gain(afterburner_emitter, 0.0);		
+}
+
+#endregion

@@ -20,8 +20,8 @@ function create_env_layer(sprites, parallax, density, scale_min, scale_max, scal
 		env_layer.proximity = 1;	
 	}
 	
-	for (var i = 0; i < 4 * array_length(env_layer.surfaces); i += 1) {
-		for (var j = 0; j < 4 * array_length(env_layer.surfaces); j += 1) {
+	for (var i = 0; i < env_layer.grid_size; i += 1) {
+		for (var j = 0; j < env_layer.grid_size; j += 1) {
 			env_layer.grid[i, j] = irandom(array_length(env_layer.surfaces) - 1);
 			env_layer.rot_grid[i, j] = irandom(tile_rotation_amount);
 		}

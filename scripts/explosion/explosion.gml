@@ -17,13 +17,15 @@ function create_clustered_explosion(xx, yy, scale, count, spread){
 	}
 }
 
-function create_spark(xx, yy, scale, follow) {
-	create_decaying_light(xx, yy, c_white, c_yellow, 200, 0.5, 2.0);
+function create_spark(color, xx, yy, scale, follow) {
+	create_decaying_light(xx, yy, color, color, 200, 0.5, 2.0);
 	var spark = instance_create_depth(xx, yy, -1, Spark);
 	if (follow) {
 		spark.following = self.id;	
 	}
+	spark.image_blend = color;
 	spark.image_xscale = scale;
 	spark.image_yscale = scale;
 	spark.image_angle = random(360);	
 }
+

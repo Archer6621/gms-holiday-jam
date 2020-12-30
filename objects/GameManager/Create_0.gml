@@ -7,7 +7,7 @@ global.hawk = noone;
 global.dts = 1 / room_speed;
 
 
-audio_play_sound(music_1,0,1);
+audio_play_sound(music_2,0,1);
 
 
 // Particle Management

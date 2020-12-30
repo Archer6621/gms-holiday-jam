@@ -25,10 +25,19 @@ for (var i = 0; i < array_length(self.objects); i += 1) {
 			other.count += 1;	
 		}
 	}
-	//show_debug_message(self.count)
+	// TODO: try to space spawns 
 	if (proximity >= random(1) and self.count < self.density) {
 		var spawn_x = random(room_width);
-		instance_create_layer(spawn_x, room_height - (ymin + random(ymax - ymin)), "Instances", self.objects[i]);
+		var spawn_y = room_height - (ymin + random(ymax - ymin));
+		// Check if anything spawned nearby
+		var inst = instance_nearest(spawn_x, spawn_y, Rigidbody);
+		if (instance_exists(inst)) {
+			if (point_distance(inst.x, inst.y, spawn_x, spawn_y) < 2 * max(inst.sprite_width, inst.sprite_height)) {
+				continue;	
+			}
+		}
+		
+		instance_create_layer(spawn_x, spawn_y, "Instances", self.objects[i]);
 	}
 }
 

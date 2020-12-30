@@ -9,6 +9,7 @@ rotation_speed = 10 + random(20);
 image_angle = random(360);
 image_xscale = 1;
 image_yscale = image_xscale;
+image_blend = c_maroon;
 
 // Physics
 density = 500;

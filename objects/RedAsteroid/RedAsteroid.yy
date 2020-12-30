@@ -1,15 +1,15 @@
 {
   "spriteId": {
-    "name": "spr_asteroid_red",
-    "path": "sprites/spr_asteroid_red/spr_asteroid_red.yy",
+    "name": "spr_asteroid",
+    "path": "sprites/spr_asteroid/spr_asteroid.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "Rigidbody",
-    "path": "objects/Rigidbody/Rigidbody.yy",
+    "name": "Asteroid",
+    "path": "objects/Asteroid/Asteroid.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -25,7 +25,6 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"RedAsteroid","path":"objects/RedAsteroid/RedAsteroid.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"RedAsteroid","path":"objects/RedAsteroid/RedAsteroid.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],

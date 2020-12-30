@@ -49,3 +49,12 @@ create_env_layer([spr_dust], 0.85,  0.00001, 0.1, 0.6, 0.4, 360, 360, 0, c_white
 	]
 	create_stage_volume([BeamTurret], 16000, 30000, 4000, 3, env_layers);
 }
+
+{
+	var env_layers = [
+		create_env_layer([spr_nebula_4_blur], 0.5, 0.000015, 3-1, 7-1, 0.15, 360, 360, 1, c_red, false),
+		create_env_layer([spr_nebula_4_blur], 0.375, 0.000025, 3-1, 7-1, 0.15, 360, 360, 0.75, c_red, false),
+		create_env_layer([spr_nebula_4_blur], 0.25, 0.000035, 2-1, 6-1, 0.5, 360, 360, 0.5, c_red, false)
+	]
+	create_stage_volume([RedAsteroid, Drone], 28000, 40000, 3000, 3, env_layers);
+}

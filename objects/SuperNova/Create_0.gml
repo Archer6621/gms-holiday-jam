@@ -1,9 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-y = room_height + 500;
+y = room_height + 800;
 
-supernova_speed = 750; // Pixels / sec
+supernova_speed = 800; // Pixels / sec
 terminal_horizon = 2500; 
 
 shockwave_emitter = audio_emitter_create();

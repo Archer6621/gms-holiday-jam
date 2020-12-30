@@ -4,8 +4,9 @@
 // Inherit the parent event
 event_inherited();
 
-if (instance_exists(global.hawk)) {
-	if (alarm_ready(0) and point_distance(x, y, global.hawk.x, global.hawk.y) < fuse_proximity) {
+var inst = instance_nearest(x, y, Ship);
+if (inst) {
+	if (alarm_ready(0) and point_distance(x, y, inst.x, inst.y) < fuse_proximity) {
 		alarm_set(0, fuse_time * room_speed);
 	}
 }

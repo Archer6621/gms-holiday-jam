@@ -10,6 +10,6 @@ if (not is_on_screen(2 * sprite_width)) {
 }
 
 if (behaviour_disabled) {
-	alarm_set(0, interval * room_speed);
-	alarm_set(1, interval * room_speed);
+	alarm_stop(0);
+	alarm_stop(1);
 }

@@ -58,3 +58,8 @@ create_env_layer([spr_dust], 0.85,  0.00001, 0.1, 0.6, 0.4, 360, 360, 0, c_white
 	]
 	create_stage_volume([RedAsteroid, Drone], 28000, 40000, 3000, 3, env_layers);
 }
+
+{
+	var env_layers = [];
+	create_stage_volume([VolatileAsteroid], 36000, 48000, 8000, 5, env_layers);	
+}

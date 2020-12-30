@@ -35,8 +35,12 @@ function alarm_ready(index) {
 	return alarm_get(index) == -1;	
 }
 
+function alarm_stop(index) {
+	alarm_set(index, -1);	
+}
+
 function alarm_pause(index) {
-	if (not alarm_ready(index)) {
+	if (not alarm_ready(index) and alarm_get(index) > 0) {
 		alarm_set(index, alarm_get(index) + 1);
 	}
 }

@@ -57,6 +57,11 @@ if (speed > max_speed) {
 	motion_add(direction + 180, dts * acceleration_rate);
 	//speed = speed / (1 + p_friction / room_speed);
 }
+
+// To prevent cheezing the game by border-hugging
+if (x < 0 or x > room_width) {
+	knock_out(0.1);	
+}
 #endregion
 
 #region Sound

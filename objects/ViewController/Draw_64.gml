@@ -21,10 +21,8 @@ if surface_exists(surf)
 		var pa = draw_get_alpha();
 		var pc = draw_get_color();
 		var ui_height = ch - 2 * margin;
-		var hawk_loc = 0;
-		if (instance_exists(global.hawk)) {
-			hawk_loc = ui_height * global.hawk.y / room_height;
-		}
+		
+
 		var loc1 = min(ui_height * y / room_height, ui_height);
 		var loc2 = min(ui_height * (y + terminal_horizon) / room_height, ui_height);
 		draw_set_alpha(0.4);
@@ -36,10 +34,17 @@ if surface_exists(surf)
 		draw_set_alpha((0.75 + 0.25 * sin(0.05 * global.frames)));
 		draw_rectangle(cw - 2 * margin, margin + loc2, cw - margin, margin + ui_height, false );
 		
-		draw_set_color(c_aqua);
-		draw_arrow(cw - 2.5 * margin, margin + hawk_loc, cw - 2.1 * margin, margin + hawk_loc, 50);
+		
+		if (instance_exists(global.hawk)) {
+			other.hawk_loc = ui_height * global.hawk.y / room_height;
+			draw_set_color(c_aqua);
+		} else {
+			draw_set_color(c_red);	
+		}
+		
+		draw_arrow(cw - 2.5 * margin, margin + other.hawk_loc, cw - 2.1 * margin, margin + other.hawk_loc, 50);
 		draw_set_alpha(1.0);
-		draw_line(cw - 2 * margin, margin + hawk_loc, cw - margin, margin + hawk_loc); 
+		draw_line(cw - 2 * margin, margin + other.hawk_loc, cw - margin, margin + other.hawk_loc); 
 		
 		draw_set_color(pc);
 		draw_set_alpha(pa);

@@ -12,9 +12,14 @@ density = 10;
 p_friction = 5;
 interval = 1.0;
 warn_interval = 0.25;
-initialized = false;
 
 hole_x = lengthdir_x(sprite_width * 0.4, image_angle);
 hole_y = lengthdir_y(sprite_width * 0.4, image_angle);
 
 alarm_set(0, random(0.25 * interval * room_speed));
+
+// Lighting
+normal_strength_scale = 0.5;
+ambient_scale = 0.75;
+lighting_intensity_scale = 1.4;
+emission_strength_scale = 2.0;

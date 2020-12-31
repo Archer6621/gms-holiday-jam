@@ -43,7 +43,7 @@ if (proximity > 0.01) {
 						ys,
 						random(rotation_amount),
 						c_white, 
-						random(1)
+						opacity_min + random(1 - opacity_min)
 					);
 				}
 				surface_reset_target();
@@ -69,8 +69,9 @@ if (proximity > 0.01) {
 		var y_count = ceil((ch + 2 * sh) / ash);
 		for (var i_x = 0; i_x < x_count + 2; i_x += 1) {
 			for (var i_y = 0; i_y < y_count + 2; i_y += 1) {
-				var g_x = (i_h + i_y) % grid_size;
-				var g_y = (i_w + i_x) % grid_size;
+				var safety = 10; // So it doesn't go below zero, gamemaker's mod can't deal with it and custom function is very slow
+				var g_x = (i_h + i_y + safety) % grid_size;
+				var g_y = (i_w + i_x + safety) % grid_size;
 				if (grid[g_x, g_y] == i) {
 					var surf = surfaces[grid[g_x, g_y]];
 					if (surface_exists(surf)) {

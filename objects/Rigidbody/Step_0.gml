@@ -37,6 +37,26 @@ if (x > room_width) {
 	create_spark(c_aqua, x, y, 1, false);
 }
 
-if (behaviour_disabled) {
-	exit;	
+// Ash particles
+part_emitter_region(global.ps_top, ash_emitter, x-sprite_width/2, x+sprite_width/2, y-sprite_width/2, y+sprite_width/2, ps_shape_ellipse, ps_distr_invgaussian);
+if (in_shockwave) {
+	randomize();
+	part_emitter_stream(global.ps_top, ash_emitter, global.ash_particle, -8);
+	s_ambient = 0.03;
+	s_lighting_intensity = 0.05;
+}  else {
+	part_emitter_stream(global.ps_top, ash_emitter, global.ash_particle, 0);
+	s_lighting_intensity = 0.5;
+	s_ambient = 0.75;
 }
+
+if (behaviour_disabled) {
+	s_emission_strength = 0.1;	
+} else {
+	s_emission_strength = 1.0;	
+}
+
+event_user(0)
+//else {	
+//	part_emitter_clear(global.ps, ash_emitter);
+//}

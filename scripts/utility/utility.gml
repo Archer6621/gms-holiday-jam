@@ -85,6 +85,23 @@ function instance_nearest_notme(object_id) {
 	return inst;
 }
 
+function instance_nearest_notthem(object_id, them) {
+	var exists = instance_exists(them);
+	if (exists) {
+		var x_check = them.x;
+		var y_check = them.y;
+		them.x += 1000000;
+		them.y += 1000000;
+	}
+	var inst = instance_nearest(x, y, object_id);
+	if (exists) {
+		them.x = x_check;
+		them.y = y_check;
+	}
+	return inst;
+}
+
+
 function array_contains(array, element) {
 	for (var i = 0; i < array_length(array); i++) {
 		if (array[i] == element) {

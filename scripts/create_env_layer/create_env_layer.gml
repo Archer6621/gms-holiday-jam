@@ -1,10 +1,10 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function create_env_layer(sprites, parallax, density, scale_min, scale_max, scale_desync, rotation_amount, tile_rotation_amount, tile_rotation_dynamic, depth_color, permanent){
+function create_env_layer(sprites, parallax, density, scale_min, scale_max, scale_desync, rotation_amount, tile_rotation_amount, tile_rotation_dynamic, depth_color, depth_color_offset, opacity_min, permanent){
 	var d_start = 100;
 	var d = d_start + ceil(1 / parallax);
 	var env_layer = instance_create_depth(0, 0, d, EnvLayer);
-	env_layer.depth_blend = 1 - clamp((d_start + 1.5 + 4 - d)/4, 0, 1);
+	env_layer.depth_blend = 1 - clamp((d_start - depth_color_offset + 1.5 + 4 - d)/4, 0, 1);
 	env_layer.sprites = sprites;
 	env_layer.par = parallax;
 	env_layer.density = density;
@@ -15,6 +15,7 @@ function create_env_layer(sprites, parallax, density, scale_min, scale_max, scal
 	env_layer.tile_rotation_amount = tile_rotation_amount;
 	env_layer.tile_rotation_dynamic = tile_rotation_dynamic;
 	env_layer.depth_color = depth_color;
+	env_layer.opacity_min = opacity_min;
 	
 	if (permanent) {
 		env_layer.proximity = 1;	

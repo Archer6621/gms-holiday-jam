@@ -15,5 +15,9 @@ image_angle = random(360);
 image_xscale = 0.5 + random(3);
 image_yscale = image_xscale;
 
+// Lighting
+normal_strength_scale = 0.5;
+emission_strength_scale = 0.0;
+
 // Initial motion
 motion_add(random(360), random(0.5));

@@ -3,4 +3,7 @@
 
 // Inherit the parent event
 event_inherited();
-instance_destroy();
+
+if (not behaviour_disabled) {
+	instance_destroy();
+}

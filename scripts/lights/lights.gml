@@ -23,8 +23,14 @@ function create_basic_light(xx, yy, color, radius, intensity) {
 	return light;
 }
 
-function create_following_light(instance, color, radius, intensity) {
+function create_following_light(instance, color, radius, intensity, offset_x, offset_y) {
 	var light = instance_create(FollowingLight);
+	if (offset_x != undefined) {
+		light.offset_x = offset_x;	
+	}
+	if (offset_y != undefined) {
+		light.offset_x = offset_y;	
+	}
 	light.following = instance;
 	light.light_color = color;
 	light.light_radius = radius;

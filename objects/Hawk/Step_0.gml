@@ -6,5 +6,4 @@ go_right =  keyboard_check(vk_right);
 go_forward = keyboard_check(vk_up);
 go_back = keyboard_check(vk_down);
 use_afterburner = keyboard_check(vk_shift);
-
 event_inherited();

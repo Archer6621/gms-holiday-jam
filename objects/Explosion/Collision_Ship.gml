@@ -3,5 +3,5 @@
 
 event_perform(ev_collision, Rigidbody);
 with (other) {
-	knock_out(ceil(0.5 * other.image_xscale));	
+	knock_out(ceil(0.3 * other.image_xscale));	
 }

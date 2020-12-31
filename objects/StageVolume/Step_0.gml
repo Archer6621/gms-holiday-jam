@@ -25,7 +25,7 @@ for (var i = 0; i < array_length(self.objects); i += 1) {
 			other.count += 1;	
 		}
 	}
-	// TODO: try to space spawns 
+
 	if (proximity >= random(1) and self.count < self.density) {
 		var spawn_x = random(room_width);
 		var spawn_y = room_height - (ymin + random(ymax - ymin));
@@ -46,8 +46,3 @@ for (var j = 0; j < array_length(self.env_layers); j += 1) {
 	env_layer = self.env_layers[j];
 	env_layer.proximity = self.proximity;
 }
-
-// Particles
-//var dts = delta_time / 1000000;
-//part_emitter_region(ps, em, 0, room_width, hawk.y - view_hport[0], hawk.y - view_hport[0], ps_shape_line, ps_distr_linear);
-//part_emitter_burst(ps, em, pt, density * proximity);

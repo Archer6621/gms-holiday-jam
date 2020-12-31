@@ -34,10 +34,16 @@ if surface_exists(surf)
 		draw_set_alpha((0.75 + 0.25 * sin(0.05 * global.frames)));
 		draw_rectangle(cw - 2 * margin, margin + loc2, cw - margin, margin + ui_height, false );
 		
+		var warp_zone = instance_find(WarpZone,0);
+		if (instance_exists(warp_zone)) {
+			draw_set_color(c_aqua);
+			var warp_loc = min(ui_height * warp_zone.y / room_height, ui_height)
+			draw_line(cw - 2 * margin, margin + warp_loc, cw - margin, margin + warp_loc); 
+		}
 		
 		if (instance_exists(global.hawk)) {
 			other.hawk_loc = ui_height * global.hawk.y / room_height;
-			draw_set_color(c_aqua);
+			draw_set_color(c_lime);
 		} else {
 			draw_set_color(c_red);	
 		}
@@ -45,6 +51,8 @@ if surface_exists(surf)
 		draw_arrow(cw - 2.5 * margin, margin + other.hawk_loc, cw - 2.1 * margin, margin + other.hawk_loc, 50);
 		draw_set_alpha(1.0);
 		draw_line(cw - 2 * margin, margin + other.hawk_loc, cw - margin, margin + other.hawk_loc); 
+		
+
 		
 		draw_set_color(pc);
 		draw_set_alpha(pa);

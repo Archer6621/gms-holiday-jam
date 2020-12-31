@@ -34,7 +34,8 @@ if (alarm_get(0) == -1) {
 	}
 	#endregion
 } else {
-	image_angle += dts * 360 * knockout_speed;	
+	image_angle += dts * 360 * knockout_speed;
+	speed = speed / 1.005;
 }
 
 #region Resources

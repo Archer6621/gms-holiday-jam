@@ -39,6 +39,7 @@ function knock_out(amount) {
 }
 
 function initialize_sound(sound, pitch) {
+	audio_falloff_set_model(audio_falloff_exponent_distance);
 	if (sound != undefined) {
 		if (not audio_emitter_exists(engine_emitter)) {
 			engine_sound = sound;

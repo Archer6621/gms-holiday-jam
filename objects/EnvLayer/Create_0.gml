@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-overlap = 0.5;
+overlap = 0.4;
 sw = 1024;
 sh = 1024;
 surfaces = [noone, noone, noone];
@@ -24,6 +24,7 @@ grid = []
 rot_grid = []
 depth_color = c_white;
 depth_blend = 0;
+opacity_min = 0;
 grid_size = 4 * array_length(surfaces);
 
 

@@ -17,7 +17,10 @@ col_dir = 0;
 rel_speed = 0;
 rel_hspeed = 0;
 rel_vspeed = 0;
+in_shockwave = false;
 behaviour_disabled = false;
+ash_emitter = part_emitter_create(global.ps_top);
+
 
 function get_mass() {
 	return image_xscale * image_yscale * density;	

@@ -13,8 +13,8 @@
   "soundFile": "music_4.wav",
   "duration": 82.29071,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "Music",
+    "path": "folders/Sounds/Music.yy",
   },
   "resourceVersion": "1.0",
   "name": "music_4",

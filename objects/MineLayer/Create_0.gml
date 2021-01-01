@@ -6,7 +6,8 @@ event_inherited();
 engine_trail_particle = global.super_drone_engine_paticle;
 initialize_sound(mine_layer_engine, 1);
 create_following_light(id, c_purple, 100, 0.4);
-
+image_xscale = 2;
+image_yscale = image_xscale;
 max_speed -= 0;
 
 

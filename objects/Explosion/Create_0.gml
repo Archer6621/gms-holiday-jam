@@ -3,3 +3,4 @@
 
 collision_map = ds_map_create();
 blend_mode = bm_normal;
+

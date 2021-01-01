@@ -1,6 +1,10 @@
 // Music
 audio_play_sound(music_1,0,1);
 
+// Data extraction point
+var x_margin = 1000;
+instance_create_depth(x_margin + random(room_width - x_margin), 0.1 * room_height + random(0.8 * room_height), 0, DataExtractionPoint);
+
 // Stage
 {
 	var env_layers = [

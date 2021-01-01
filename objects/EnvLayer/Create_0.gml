@@ -2,6 +2,7 @@
 // You can write your code in this editor
 
 overlap = 0.4;
+scaling = 0.25;
 sw = 1024;
 sh = 1024;
 surfaces = [noone, noone, noone];

@@ -18,6 +18,7 @@ if (proximity > 0.01) {
 		if (surface_exists(surf)) {
 			if (redraw[s]) {
 				surface_set_target(surf);
+				draw_clear_alpha(c_black, 0);
 				var amount = density * sw * sh;
 				for (var i = 0 ; i < amount ; i++) {
 					var sprite = array_choose(sprites);
@@ -37,10 +38,10 @@ if (proximity > 0.01) {
 					draw_sprite_ext(
 						sprite, 
 						0, 
-						xp, 
-						yp, 
-						xs, 
-						ys,
+						scaling * xp, 
+						scaling * yp, 
+						scaling * xs, 
+						scaling * ys,
 						random(rotation_amount),
 						c_white, 
 						opacity_min + random(1 - opacity_min)
@@ -50,7 +51,7 @@ if (proximity > 0.01) {
 				redraw[s] = false;
 			}
 		} else {
-			surf = surface_create(sw, sh);
+			surf = surface_create(scaling * sw, scaling * sh);
 			redraw[s] = true;
 		}
 		surfaces[s] = surf;
@@ -60,6 +61,7 @@ if (proximity > 0.01) {
 	// This can be made even more efficient if we store the x/y indices per variant
 	// since then we only have to do a single pass through the grid
 	// but usually the on-screen grid is insignificantly small
+	//print("Drawing: ", id, sprite_get_name(sprites[0]), proximity);
 	for (var i = 0; i < array_length(surfaces); i += 1) {
 		var asw = sw * (1 - overlap);
 		var ash = sh * (1 - overlap);
@@ -77,7 +79,7 @@ if (proximity > 0.01) {
 					if (surface_exists(surf)) {
 						var surface_x = (i_w + i_x - 1) * asw - (sw - asw) + (1 - par) * cx;
 						var surface_y = (i_h + i_y - 1) * ash - (sh - ash) + (1 - par) * cy;
-						draw_surface_ext(surf, surface_x, surface_y, 1,  1, rot + rot_grid[g_x, g_y], col, proximity);	
+						draw_surface_ext(surf, surface_x, surface_y, 1 / scaling,  1 / scaling, rot + rot_grid[g_x, g_y], col, proximity);	
 					}
 				}
 			}

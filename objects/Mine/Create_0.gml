@@ -1,13 +1,19 @@
 /// @description Insert description here
 // You can write your code in this editor
 event_inherited();
-create_following_light(id, c_red, 10, 1);
+
 
 // inits
 image_angle = random(360);
 
 // params
 creator = noone;
-guide_distance = 400;
-max_speed = 3;
+guide_distance = 500;
+max_speed = 4;
 acceleration_rate = 10;
+
+// Lighting
+create_following_light(id, c_red, 10, 2.0);
+lighting_intensity_scale = 0.5;
+ambient_scale = 0.1;
+emission_strength_scale = 1.5;

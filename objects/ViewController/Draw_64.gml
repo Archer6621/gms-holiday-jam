@@ -14,14 +14,18 @@ if surface_exists(surf)
 	draw_surface_stretched(surf, 0, 0, display_get_gui_width(), display_get_gui_height());
 	shader_reset();
 	
+	// UI
+	var pa = draw_get_alpha();
+	var pc = draw_get_color();
+	self.ch = display_get_gui_height();
+	self.cw = display_get_gui_width();
+	self.ui_height = display_get_gui_height() - 2 * self.margin;
+	
 	with (SuperNova) {
-		var margin = 40;
-		var ch = display_get_gui_height();
-		var cw = display_get_gui_width();
-		var pa = draw_get_alpha();
-		var pc = draw_get_color();
-		var ui_height = ch - 2 * margin;
-		
+		var ch = other.ch;
+		var cw = other.cw;
+		var ui_height = other.ui_height;
+		var margin = other.margin;
 
 		var loc1 = min(ui_height * y / room_height, ui_height);
 		var loc2 = min(ui_height * (y + terminal_horizon) / room_height, ui_height);
@@ -33,29 +37,41 @@ if surface_exists(surf)
 		draw_set_color(c_red);
 		draw_set_alpha((0.75 + 0.25 * sin(0.05 * global.frames)));
 		draw_rectangle(cw - 2 * margin, margin + loc2, cw - margin, margin + ui_height, false );
-		
-		var warp_zone = instance_find(WarpZone,0);
-		if (instance_exists(warp_zone)) {
-			draw_set_color(c_aqua);
-			var warp_loc = min(ui_height * warp_zone.y / room_height, ui_height)
-			draw_line(cw - 2 * margin, margin + warp_loc, cw - margin, margin + warp_loc); 
-		}
-		
-		if (instance_exists(global.hawk)) {
-			other.hawk_loc = ui_height * global.hawk.y / room_height;
-			draw_set_color(c_lime);
-		} else {
-			draw_set_color(c_red);	
-		}
-		
-		draw_arrow(cw - 2.5 * margin, margin + other.hawk_loc, cw - 2.1 * margin, margin + other.hawk_loc, 50);
-		draw_set_alpha(1.0);
-		draw_line(cw - 2 * margin, margin + other.hawk_loc, cw - margin, margin + other.hawk_loc); 
-		
-
-		
-		draw_set_color(pc);
-		draw_set_alpha(pa);
 	}
 	
+	draw_set_color(c_aqua);
+	with (WarpZone) {
+		var ch = other.ch;
+		var cw = other.cw;
+		var ui_height = other.ui_height;
+		var margin = other.margin;
+		
+		var warp_loc = min(ui_height * y / room_height, ui_height)
+		draw_line(cw - 2 * margin, margin + warp_loc, cw - margin, margin + warp_loc); 
+	}
+	
+	with (Hawk) {
+		var ch = other.ch;
+		var cw = other.cw;
+		var ui_height = other.ui_height;
+		var margin = other.margin;
+		var hawk_loc = ui_height * global.hawk.y / room_height;
+		var hawk_x = margin * x / room_width;
+		
+		draw_set_color(c_lime);
+		draw_line(cw - 2 * margin, margin + hawk_loc, cw - margin, margin + hawk_loc); 
+		draw_arrow(cw - 2.5 * margin, margin + hawk_loc, cw - 2.1 * margin, margin + hawk_loc, 50);
+		draw_circle(cw - 2 * margin + hawk_x, margin + hawk_loc, 2, false);
+	}
+	
+	with (DataExtractionPoint) {
+		var xx = other.margin * x / room_width;
+		var yy = other.ui_height * y / room_height;
+		draw_set_color(c_aqua);
+		draw_circle(cw - 2 * margin + xx, margin + yy, 2, false);
+	}
+		
+
+	draw_set_color(pc);
+	draw_set_alpha(pa);
 } 

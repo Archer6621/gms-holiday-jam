@@ -1,19 +1,20 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-// Find Hawk and spawn stuff ahead
 
+// Find Hawk and spawn stuff ahead
 if (not instance_exists(global.hawk)) {
 	exit;	
 }
 
 var inv_y = room_height - global.hawk.y
 
+prev_proximity = proximity;
 proximity = transition(inv_y, vol_start, vol_end, vol_transition);
 
 if (proximity < 0.0001) {
 	exit;	
-}
+} 
 
 ymin = inv_y + view_hport[0];
 ymax = ymin + view_hport[0];
@@ -33,7 +34,7 @@ for (var i = 0; i < array_length(self.objects); i += 1) {
 		var inst = instance_nearest(spawn_x, spawn_y, Rigidbody);
 		if (instance_exists(inst)) {
 			if (point_distance(inst.x, inst.y, spawn_x, spawn_y) < 2 * max(inst.sprite_width, inst.sprite_height)) {
-				continue;	
+				continue;
 			}
 		}
 		
@@ -46,3 +47,20 @@ for (var j = 0; j < array_length(self.env_layers); j += 1) {
 	env_layer = self.env_layers[j];
 	env_layer.proximity = self.proximity;
 }
+
+// Trigger stuff upon entering
+if (prev_proximity < 0.0001 and proximity >= 0.0001 and not entered) {
+	for (var i = 0; i < array_length(objects); i += 1) {
+		if (object_is_ancestor(objects[i], Drone) or objects[i]==Drone) {
+			global.alert_manager.queue_notification("INCOMING DRONES!", alert_1, snd_voice_incoming_drones);
+			break;
+		}
+		
+		if (object_is_ancestor(objects[i], MineLayer) or objects[i]==MineLayer) {
+			global.alert_manager.queue_notification("MINES AHEAD!", alert_1, snd_voice_mines_ahead);
+			break;
+		}
+	}
+}
+
+entered = true;

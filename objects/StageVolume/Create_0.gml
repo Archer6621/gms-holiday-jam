@@ -11,6 +11,8 @@ density = 0;
 
 // Initalizations
 proximity = 0;
+prev_proximity = 0;
+entered = false;
 
 // Particles
 //ps = part_system_create();

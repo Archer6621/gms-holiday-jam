@@ -10,13 +10,13 @@ if (alarm_get(0) == -1) {
 	if (can_use_afterburner() and use_afterburner) {
 		//create_spark(c_orange, x, y, 1, false);
 		motion_add(image_angle, 0.1 * dts * acceleration_rate);
-		part_particles_create(global.ps, x, y, global.afterburner_particle, 1);
+		part_particles_create(global.ps_add, x, y, global.afterburner_particle, 1);
 	}
 
 	if (go_forward) {
 		motion_add(image_angle, dts * acceleration_rate);
 		part_particles_create(global.ps, x, y, engine_trail_particle, 1);
-		part_particles_create(global.ps, x, y, global.default_engine_paticle, 1);
+		part_particles_create(global.ps_add, x, y, global.default_engine_paticle, 1);
 	}
 	
 	if (go_back) {

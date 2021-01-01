@@ -29,7 +29,7 @@ s_lighting_intensity = 0.50;
 s_emission_strength = 3.0;
 s_normal_strength = 1.0;
 
-ambient_scale = 1.0;
+ambient_scale = 0.6;
 lighting_intensity_scale = 1.0;
 emission_strength_scale = 1.0;
 normal_strength_scale = 1.0;

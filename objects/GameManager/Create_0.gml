@@ -16,7 +16,11 @@ function go_to_next_level() {
 
 // Particle Management
 global.ps = part_system_create();
+global.ps_add = part_system_create();
 global.ps_top = part_system_create();
+part_system_automatic_draw(global.ps, false);
+part_system_automatic_draw(global.ps_add, false);
+part_system_automatic_draw(global.ps_top, false);
 part_system_depth(global.ps_top, -10);
 
 global.default_engine_paticle = part_type_create();
@@ -25,7 +29,7 @@ part_type_size(global.default_engine_paticle, 0.2, 0.2, -0.01, 0.1);
 part_type_alpha2(global.default_engine_paticle, 1.0, 0.0);
 part_type_color1(global.default_engine_paticle, c_gray);
 part_type_life(global.default_engine_paticle, 0.5 * room_speed, 1 * room_speed);
-part_type_blend(global.default_engine_paticle, true)
+part_type_blend(global.default_engine_paticle, true);
 
 global.hawk_engine_paticle = part_type_create();
 part_type_shape(global.hawk_engine_paticle, pt_shape_flare);

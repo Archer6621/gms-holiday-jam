@@ -7,6 +7,8 @@ global.hawk = noone;
 global.dts = 1 / room_speed;
 global.levels = [level_1, level_2, level_3, level_4];
 global.current_level = -1;
+global.ui_alpha = 0.95;
+global.draw_one = true;
 
 function go_to_next_level() {
 	global.current_level += 1;

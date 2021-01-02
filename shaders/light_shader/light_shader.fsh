@@ -5,7 +5,7 @@ varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
 varying vec2 screen_pos;
 
-const int MAX_LIGHTS = 200;
+const int MAX_LIGHTS = 50;
 
 uniform vec3 light_color[MAX_LIGHTS];
 uniform float light_radius[MAX_LIGHTS];
@@ -29,7 +29,7 @@ void main()
 	vec3 normal = texture2D(normal, v_vTexcoord).rgb;
 	normal = normalize(normal * 2.0 - 1.0);
 	normal.xy *= normal_strength;
-	normal.z = -normal.z;
+	normal.z = -normal.z - 0.0001; // This way we can omit a normal map
 	normal = normalize(normal);
 	
 	vec3 emission = texture2D(emission, v_vTexcoord).rgb;

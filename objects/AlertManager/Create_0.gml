@@ -16,7 +16,7 @@ function show_notification(message_string,  alert_sound, voice_clip) {
 	alarm_stop(2);
 	alarm_stop(1);
 	alarm_stop(0);
-	alarm_set(1, room_speed * audio_sound_length(alert_sound));
+	alarm_set(1, 0.5 * room_speed * audio_sound_length(alert_sound));
 	self.voice_clip = voice_clip;
 	fade = false;
 	image_alpha = 1;
@@ -26,6 +26,12 @@ function show_notification(message_string,  alert_sound, voice_clip) {
 	current_message = "";
 }
 
-function queue_notification(message_string, alert_sound, voice_clip) {
-	ds_queue_enqueue(notification_queue, [message_string, alert_sound, voice_clip]);	
+function queue_notification(message_string, alert_sound, voice_clip, priority) {
+	ds_queue_enqueue(notification_queue, [message_string, alert_sound, voice_clip]);
+	if (priority != undefined and priority) {
+		repeat(ds_queue_size(notification_queue) - 1) {
+			var temp = ds_queue_dequeue(notification_queue);
+			ds_queue_enqueue(temp);
+		}
+	}
 }

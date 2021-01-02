@@ -13,7 +13,7 @@ max_speed = 4;
 acceleration_rate = 10;
 
 // Lighting
-create_following_light(id, c_red, 10, 2.0);
-lighting_intensity_scale = 0.5;
+create_following_light(id, c_red, 30, 1.0);
+lighting_intensity_scale = 0.25;
 ambient_scale = 0.1;
 emission_strength_scale = 1.5;

@@ -18,7 +18,7 @@ const float PI = 3.14;
 void main()
 {
 	float mask0 = pow(clamp(0.1 * sin(PI + PI * (v_vTexcoord.x) ) + supernova_shockwave_y - v_vTexcoord.y + 0.5, 0.0, 1.0), 6.0);
-	float mask2 = 1.0 - clamp(0.1 * sin(PI + PI * (v_vTexcoord.x) ) + supernova_horizon_y - v_vTexcoord.y, 0.0, 1.0);
+	float mask2 = pow(1.0 - clamp(0.1 * sin(PI + PI * (v_vTexcoord.x) ) + supernova_horizon_y - v_vTexcoord.y, 0.0, 1.0), 2.0);
 	float mask1 = (1.0 + 0.03 * (sin(0.35 * frames + 10.0 * pow((1.0 - sin(PI + PI * (v_vTexcoord.x) )) * 0.08 + v_vTexcoord.y, 3.0)))) * (1.0 - mask0) * (1.0 - mask2);
 	
 	vec4 base_color = v_vColour * texture2D( gm_BaseTexture, v_vTexcoord);
@@ -37,7 +37,7 @@ void main()
 		//fade * vec4(1.4, 1.2, 1.0, 1.0) * crangled +
 		//fade2 * vec4(1.0, 0.3, 0.1, 1.0) * crangled +
 		//(1.0 - fade) * vec4(0.9, 0.7, 0.5, 1.0);
-	vec4 horizon = 4.0 * base_color + 0.95 * vec4(1.0, 1.0, 1.0, 1.0);
+	vec4 horizon = 4.0 * base_color + 0.99 * vec4(1.0, 1.0, 1.0, 1.0);
 	
     gl_FragColor = mask2 * horizon + mask1 * shockwave + mask0 * base_color;
 }

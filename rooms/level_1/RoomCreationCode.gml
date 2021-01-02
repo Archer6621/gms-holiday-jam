@@ -1,18 +1,19 @@
 // Music
 audio_play_sound(music_1,0,1);
 
-// Data extraction point
-var x_margin = 1000;
-instance_create_depth(x_margin + random(room_width - x_margin), 0.1 * room_height + random(0.8 * room_height), 0, DataExtractionPoint);
+
+// Base background
+create_env_layer([spr_star_s, spr_star_m, spr_star_l], 0.01, 0.00015, 1, 1, 0, 0, 180, 0, c_white, 0, 0, true);
+create_env_layer([spr_dust], 0.85,  0.00001, 0.1, 0.6, 0.4, 360, 360, 0, c_white, 0, 0, true);
+	
 
 // Stage
 {
 	var env_layers = [
 		create_env_layer([spr_nebula], 0.6,  0.00005, 4, 7, 0.5, 360, 360, 1, c_navy, 0, 0, false),
-		create_env_layer([spr_nebula], 0.45, 0.00010, 3.5, 6.5, 0.5, 360, 360, 0.5, c_navy, 0, 0, false),
+		create_env_layer([spr_nebula], 0.45, 0.00010, 3.5, 6.5, 0.5, 360, 360, 0.5, c_navy, 0, 0, false, true),
 		create_env_layer([spr_nebula], 0.3,  0.00015, 3, 6, 0.5, 360, 360, 0.25, c_navy, 0, 0, false)
 	] 
-
 	create_stage_volume([Asteroid, VolatileAsteroid], 3000, 12000, 3000, 10, env_layers);
 }
 
@@ -51,8 +52,8 @@ instance_create_depth(x_margin + random(room_width - x_margin), 0.1 * room_heigh
 
 {
 	var env_layers = [
-		create_env_layer([spr_asteroid], 0.45, 0.000005, 0.5, 2, 0.15, 360, 360, 0.5, c_black, 0.1, 1, false),
-		create_env_layer([spr_asteroid], 0.3, 0.000015, 0.25, 1, 0.15, 360, 360, 0.25, c_black, -0.7, 1, false),
+		create_env_layer([spr_asteroid], 0.45, 0.000005, 0.5, 2, 0.15, 15, 360, 0.5, c_black, 0.1, 1, false, true),
+		create_env_layer([spr_asteroid], 0.3, 0.000015, 0.25, 1, 0.15, 15, 360, 0.25, c_black, -0.7, 1, false, true),
 		create_env_layer([spr_nebula], 0.3, 0.000085, 3, 6, 3, 360, 360, 0.5, c_green, 0, 0, false),
 		create_env_layer([spr_nebula], 0.5, 0.000045, 3, 6, 3, 360, 360, 0.5, c_green, 2, 0, false)
 	];

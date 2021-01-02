@@ -29,13 +29,13 @@ if surface_exists(surf)
 
 		var loc1 = min(ui_height * y / room_height, ui_height);
 		var loc2 = min(ui_height * (y + terminal_horizon) / room_height, ui_height);
-		draw_set_alpha(0.4);
+		draw_set_alpha(global.ui_alpha * 0.4);
 		draw_set_color(c_grey);
 		draw_rectangle(cw - 2 * margin, margin, cw - margin, ch - margin, false);
 		draw_set_color(c_yellow);
 		draw_rectangle(cw - 2 * margin, margin + loc1, cw - margin, margin + loc2, false );
 		draw_set_color(c_red);
-		draw_set_alpha((0.75 + 0.25 * sin(0.05 * global.frames)));
+		draw_set_alpha(global.ui_alpha * (0.75 + 0.25 * sin(0.05 * global.frames)));
 		draw_rectangle(cw - 2 * margin, margin + loc2, cw - margin, margin + ui_height, false );
 	}
 	

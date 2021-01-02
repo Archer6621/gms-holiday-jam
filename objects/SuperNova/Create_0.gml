@@ -15,5 +15,5 @@ audio_play_sound_on(shockwave_emitter, shockwave, true, 0);
 audio_play_sound_on(shockwave_emitter, shockwave_static, true, 0);
 audio_play_sound_on(terminal_horizon_emitter, obliteration, true, 0);
 audio_emitter_gain(terminal_horizon_emitter, 0.5);
-supernova_light = create_basic_light(x, y, c_white, 1000, 5);
+supernova_light = create_basic_light(x, y, c_white, 500, 5);
 global.alert_manager.queue_notification("WARNING, INCOMING SUPERNOVA", alert_1, snd_voice_incoming_supernova);

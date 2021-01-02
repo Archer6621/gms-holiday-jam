@@ -29,12 +29,10 @@ engine_sound = undefined;
 // Particles
 engine_trail_particle = global.hawk_engine_paticle;
 
-
-
-
-function knock_out(amount) {
+function knock_out(amount) {	
 	if (alarm_ready(0)) {
-		alarm_set(0, room_speed * amount);
+		var rounded  = ceil(amount * knockout_speed) / knockout_speed;
+		alarm_set(0, room_speed * rounded);
 	}
 }
 

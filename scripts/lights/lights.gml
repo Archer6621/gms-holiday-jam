@@ -29,7 +29,7 @@ function create_following_light(instance, color, radius, intensity, offset_x, of
 		light.offset_x = offset_x;	
 	}
 	if (offset_y != undefined) {
-		light.offset_x = offset_y;	
+		light.offset_y = offset_y;	
 	}
 	light.following = instance;
 	light.light_color = color;

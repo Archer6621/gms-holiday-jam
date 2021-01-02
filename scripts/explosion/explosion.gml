@@ -1,13 +1,13 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function create_clustered_explosion(xx, yy, scale, count, spread){
-	create_decaying_light(xx, yy, c_orange, c_red, 200, 0.5, 2.0);
+	create_decaying_light(xx, yy, c_orange, c_red, scale * 200, 0.5, 3.5);
 	var central = instance_create_depth(xx, yy, -1, Explosion);
 	central.image_xscale = scale;
 	central.image_yscale = scale;
 	central.image_angle = random(360);
 	for (var i = 0; i < count; i += 1) {
-		var side = instance_create_depth(xx, yy, 1, Explosion);
+		var side = instance_create_depth(xx, yy, 1, DummyExplosion);
 		side.image_xscale = 0.5 * scale;
 		side.image_yscale = side.image_xscale;
 		side.image_angle = random(360);
@@ -21,7 +21,7 @@ function create_colored_explosion(xx, yy, scale, color, decay_color){
 	if (decay_color == undefined) {
 		decay_color = color;	
 	}
-	create_decaying_light(xx, yy, color, decay_color, 200, 0.5, 2.0);
+	create_decaying_light(xx, yy, color, decay_color, 200, 0.5, 3.5);
 	var central = instance_create_depth(xx, yy, -2, Explosion);
 	central.image_xscale = scale;
 	central.image_yscale = scale;
@@ -31,7 +31,7 @@ function create_colored_explosion(xx, yy, scale, color, decay_color){
 	central.sprite_index = spr_explosion;
 	central.blend_mode = bm_add;
 	
-	var secondary = instance_create_depth(xx, yy, -2, Explosion);
+	var secondary = instance_create_depth(xx, yy, -2, DummyExplosion);
 	secondary.image_xscale =  0.8 * scale;
 	secondary.image_yscale =  0.8 * scale;
 	secondary.image_angle = random(360) + 270;

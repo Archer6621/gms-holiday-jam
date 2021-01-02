@@ -12,8 +12,11 @@ if (array_contains(global.levels, room)) {
 	camera_set_view_size(view_camera[0], view_wport[0] * zoom, view_hport[0] * zoom)
 	instance_create(ViewController);
 
-	// Base background
-	create_env_layer([spr_star_s, spr_star_m, spr_star_l], 0.01, 0.00015, 1, 1, 0, 0, 180, 0, c_white, 0, 0, true);
-	create_env_layer([spr_dust], 0.85,  0.00001, 0.1, 0.6, 0.4, 360, 360, 0, c_white, 0, 0, true);
+	// Data extraction point
+	var x_margin = 1000;
+	repeat(3) {
+		randomize()
+		instance_create_depth(x_margin + random(room_width - x_margin), 0.1 * room_height + random(0.8 * room_height), 0, DataExtractionPoint);
+	}
 }
 

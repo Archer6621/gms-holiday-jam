@@ -12,6 +12,21 @@ function array_append(array, element) {
 	return array;
 }
 
+function delayed_action(action, delay, args) {
+	var delayer = instance_create(Delayer);
+	if (not is_undefined(args)) {
+		for (var i = 0; i < array_length(args); i += 1) {
+			delayer.args[i] = args[i];	
+		}
+	}
+	delayer.func = action;
+	delayer.start(room_speed * delay);
+}
+
+function create_closure() {
+	return instance_create(Closure);
+}
+
 function array_concat(array, other_array) {
 	var new_array[array_length(array) + array_length(other_array)];
 	for(var i = 0; i < array_length(array); i += 1) {

@@ -1,3 +1,3 @@
 /// @description Insert description here
 // You can write your code in this editor
-room_goto(intermission);
+global.room_manager.room_goto_transition(intermission, 2.0);

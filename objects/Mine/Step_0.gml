@@ -3,7 +3,6 @@
 
 // Inherit the parent event
 event_inherited();
-
 if (not in_shockwave) {
 	var dts = 1 / room_speed;
 	var nearest_ship = instance_nearest_notthem(Ship, creator);

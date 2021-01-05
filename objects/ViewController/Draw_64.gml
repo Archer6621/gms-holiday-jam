@@ -47,7 +47,7 @@ if surface_exists(surf)
 		var margin = other.margin;
 		
 		var warp_loc = min(ui_height * y / room_height, ui_height)
-		draw_line(cw - 2 * margin, margin + warp_loc, cw - margin, margin + warp_loc); 
+		draw_rectangle(cw - 2 * margin, margin, cw - margin, margin + warp_loc, false); 
 	}
 	
 	with (Hawk) {

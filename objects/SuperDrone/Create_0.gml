@@ -4,7 +4,10 @@
 // Inherit the parent event
 event_inherited();
 engine_trail_particle = global.super_drone_engine_paticle;
-create_following_light(id, c_fuchsia, 100, 0.5);
+instance_destroy(light);
+light = create_following_light(id, c_fuchsia, 100, 0.5);
+max_integrity = 4;
+integrity = max_integrity;
 
 
 // Drone params

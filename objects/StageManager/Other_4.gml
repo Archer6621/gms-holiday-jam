@@ -3,10 +3,22 @@
 
 if (array_contains(global.levels, room)) {
 	// Hawk
-	instance_create_layer(room_width/2, room_height - 100, "Instances", Hawk);
+	var hawk = instance_create_layer(room_width/2, room_height + 100, "Instances", Hawk);
+	global.alert_manager.announce(snd_voice_disengaging);
+	hawk.warping = true;
+	delayed_action(function(inst_id) {
+		if (instance_exists(inst_id)){
+			inst_id.warping = false
+			audio_play_sound(power_loss, 0, 0);
+			global.alert_manager.queue_notification("WARNING, INCOMING SUPERNOVA", alert_1, snd_voice_incoming_supernova)
+		}
+	}, 2.0, [hawk]);
 	instance_create(SuperNova);
-	instance_create(WarpZone);
-
+	instance_create_ui(WarpZone); // Have it on the foreground
+	if (global.persistent_integrity > -1) {
+		hawk.integrity = global.persistent_integrity;
+	}
+	
 	// Camera
 	zoom = 1.0;
 	camera_set_view_size(view_camera[0], view_wport[0] * zoom, view_hport[0] * zoom)
@@ -18,5 +30,19 @@ if (array_contains(global.levels, room)) {
 		randomize()
 		instance_create_depth(x_margin + random(room_width - x_margin), 0.1 * room_height + random(0.8 * room_height), 0, DataExtractionPoint);
 	}
+	
+	// Undiscover core abilities that were discovered but not unlocked
+	var abilities = global.upgrade_manager.core_abilities;
+	for (var i = 0; i < array_length(abilities); i++) {
+		if (abilities[i].discovered and not abilities[i].unlocked) {
+			abilities[i].discovered = false;
+		}
+	}
+	
+	// Reset available credits
+	global.upgrade_manager.upgrade_credits = 0;
+	
+	// UIs
+	instance_create_ui(Upgrades);
 }
 

@@ -1,0 +1,1 @@
+set_ability(global.upgrade_manager.hull_repair_ability);

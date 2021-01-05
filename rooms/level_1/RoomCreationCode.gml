@@ -5,7 +5,6 @@ audio_play_sound(music_1,0,1);
 // Base background
 create_env_layer([spr_star_s, spr_star_m, spr_star_l], 0.01, 0.00015, 1, 1, 0, 0, 180, 0, c_white, 0, 0, true);
 create_env_layer([spr_dust], 0.85,  0.00001, 0.1, 0.6, 0.4, 360, 360, 0, c_white, 0, 0, true);
-	
 
 // Stage
 {
@@ -25,7 +24,7 @@ create_env_layer([spr_dust], 0.85,  0.00001, 0.1, 0.6, 0.4, 360, 360, 0, c_white
 
 {
 	var env_layers = [
-		create_env_layer([spr_nebula_3], 0.5, 0.000025, 4, 7, 0.5, 360, 360, 1, c_red, 0, 0, false),
+		create_env_layer([spr_nebula_3], 0.5, 0.000025, 4, 7, 0.5, 360, 360, 1, c_red, 0, 0, false, true),
 		create_env_layer([spr_nebula_2], 0.25, 0.000015, 8, 12, 2, 360, 360, 0.5, c_red, 0, 0, false),
 		create_env_layer([spr_nebula_2], 0.25, 0.000018, 3, 6, 2, 360, 360, 0.5, c_red, 0, 0, false)
 	]
@@ -36,7 +35,7 @@ create_env_layer([spr_dust], 0.85,  0.00001, 0.1, 0.6, 0.4, 360, 360, 0, c_white
 	var env_layers = [
 		create_env_layer([spr_charge_blur], 0.15, 0.000025, 4, 7, 3, 360, 360, 1, c_orange, 0, 0, false),
 		create_env_layer([spr_charge_blur], 0.2, 0.000005, 2, 4, 1, 360, 360, 1, c_orange, 0, 0, false),
-		create_env_layer([spr_nebula], 0.3, 0.000085, 3, 6, 3, 360, 360, 0.5, c_green, 0, 0, false)
+		create_env_layer([spr_nebula], 0.3, 0.000085, 3, 6, 3, 360, 360, 0.5, c_green, 0, 0, false, true)
 	]
 	create_stage_volume([BeamTurret], 16000, 30000, 4000, 3, env_layers);
 }

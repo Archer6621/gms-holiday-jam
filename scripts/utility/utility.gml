@@ -12,6 +12,54 @@ function array_append(array, element) {
 	return array;
 }
 
+function create_proximity_checker(object, distance) {
+	var inst = instance_create(ProximityChecker);	
+	inst.proximity_dist = distance;
+	inst.object = object;
+	inst.follow = id;
+	return inst;
+}
+
+function all_true(conditions, key) {
+	if (is_undefined(key)) {
+		key = function(cond) {return cond;}	
+	}
+	var cond = true;
+	for (var i = 0; i < array_length(conditions); i += 1) {
+		cond = cond and key(conditions[i]);
+	}
+	return cond;
+}
+
+function key_check_double_tap(key) {
+	var exists = false;
+	if (keyboard_check_pressed(key)) {
+		with (DoubleTap) {
+			if (self.key == key) {
+				exists = true;
+				instance_destroy(id);
+			}
+		}
+		if (not exists) {
+			var inst = instance_create(DoubleTap);
+			inst.key = key;
+		}
+	}
+	return exists;
+}
+
+function any_true(conditions, key) {
+	if (is_undefined(key)) {
+		key = function(cond) {return cond;}	
+	}
+	var cond = false;
+	for (var i = 0; i < array_length(conditions); i += 1) {
+		cond = cond or key(conditions[i]);
+	}
+	return cond;
+}
+
+
 function delayed_action(action, delay, args) {
 	var delayer = instance_create(Delayer);
 	if (not is_undefined(args)) {
@@ -21,6 +69,14 @@ function delayed_action(action, delay, args) {
 	}
 	delayer.func = action;
 	delayer.start(room_speed * delay);
+}
+
+function conditional_action(action, condition) {
+	var trigger = instance_create(ConditionalTrigger);
+	trigger.inst = id;
+	trigger.cond = condition;
+	trigger.func = action;
+	return trigger;
 }
 
 function create_closure() {
@@ -45,6 +101,11 @@ function array_choose(array) {
 function instance_create(object_id) {
 	return instance_create_depth(0,0,0,object_id);
 }
+
+function instance_create_ui(object_id) {
+	return instance_create_depth(0,0,-10, object_id);
+}
+
 
 function alarm_ready(index) {
 	return alarm_get(index) == -1;	
@@ -132,4 +193,13 @@ function print() {
 		str += string(argument[i]) + " ";	
 	}
 	show_debug_message(str);
+}
+
+// Small convenience functions to use as keys and other things
+function exec(func) {
+	return func();	
+}
+
+function zero() {
+	return 0;	
 }

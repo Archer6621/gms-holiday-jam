@@ -1,6 +1,5 @@
-//
-// Simple passthrough fragment shader
-//
+#extension GL_OES_standard_derivatives : require
+
 varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
 varying vec2 screen_pos;
@@ -15,8 +14,8 @@ uniform float ambient;
 uniform float lighting_intensity;
 uniform float emission_strength;
 uniform float normal_strength;
-uniform float cos_angle;
-uniform float sin_angle;
+//uniform float cos_angle;
+//uniform float sin_angle;
 uniform float depth;
 
 uniform sampler2D normal;
@@ -35,10 +34,16 @@ void main()
 	
 	vec3 emission = texture2D(emission, v_vTexcoord).rgb;
 	
+	// Don't need to send uniforms thanks to this nifty trick, which does require an extension
+	// No big deal for the regular meshes, but for the backgrounds this saves a couple of hundred vertex buffer breaks
+	vec2 dx = normalize(dFdx(v_vTexcoord));
+	float c = dot(dx, vec2(1.0, 0.0)); // dot(v1, v2) = |v1||v2|cos(angle)
+	float s = dot(dx, vec2(0.0, 1.0)); // We can get the sine by just rotating the base vector 90 degrees
+	
 	// Need this to correct the normals for the light angle
 	mat2 rotation_matrix = mat2( 
-		vec2(cos_angle, -sin_angle), 
-		vec2(sin_angle,  cos_angle) 
+		vec2(c, -s), 
+		vec2(s,  c) 
 	);
 	
 	vec3 total_light_color = vec3(0.0);
@@ -46,11 +51,11 @@ void main()
 		// Diffuse lighting
 		vec2 flipped_dir = light_pos[i] - screen_pos;
 		flipped_dir = vec2(flipped_dir.x, -flipped_dir.y); // Possibly because y is down in GM
-		vec3 light_dir = normalize(vec3(rotation_matrix * flipped_dir, -light_height + depth)); // Negative z means above
+		vec3 light_dir = normalize(vec3( rotation_matrix * flipped_dir, -light_height + depth)); // Negative z means above
 		float diffuse = max(dot(normal, light_dir), 0.0);
 		
-		// Specular lighting
-		vec3 half_way_dir = normalize(light_dir + view_dir); // blinn-phong
+		// Specular lighting - don't use this for the background stuff as it tends to be far away and very diffuse
+		//vec3 half_way_dir = normalize(light_dir + view_dir); // blinn-phong
 		float spec = 0.0;//pow(max(dot(normal, half_way_dir), 0.0), 128.0);
 		
 		// Falloff calculation (basic inverse linear)

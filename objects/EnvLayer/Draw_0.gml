@@ -87,10 +87,8 @@ if (proximity > 0.01) {
 	//print("Drawing: ", id, sprite_get_name(sprites[0]), proximity);
 	if (lighting) {
 		shader_set(bg_light_shader);
-		shader_set_uniform_f(u_cos_angle, cos(degtorad(image_angle)));
-		shader_set_uniform_f(u_sin_angle, sin(degtorad(image_angle)));
 		shader_set_uniform_f(u_ambient, 0.5);
-		shader_set_uniform_f(u_lighting_intensity, 0.5);
+		shader_set_uniform_f(u_lighting_intensity, 0.75);
 		shader_set_uniform_f(u_emission_strength, 0);
 		shader_set_uniform_f(u_normal_strength, 0.5);
 		shader_set_uniform_f(u_depth, depth);
@@ -116,10 +114,11 @@ if (proximity > 0.01) {
 					if (grid[g_x, g_y] == i) {
 						var surface_x = (i_w + i_x - 1) * asw - (sw - asw) + (1 - par) * cx;
 						var surface_y = (i_h + i_y - 1) * ash - (sh - ash) + (1 - par) * cy;
-						if (lighting) {
-							shader_set_uniform_f(u_cos_angle, cos(degtorad(rot + rot_grid[g_x, g_y])));
-							shader_set_uniform_f(u_sin_angle, sin(degtorad(rot + rot_grid[g_x, g_y])));
-						}
+						// This breaks batches pretty badly, replaced with dfdx solution
+						//if (lighting and global.frames) {
+						//	shader_set_uniform_f(u_cos_angle, cos(degtorad(rot + rot_grid[g_x, g_y])));
+						//	shader_set_uniform_f(u_sin_angle, sin(degtorad(rot + rot_grid[g_x, g_y])));
+						//}
 						draw_surface_ext(surf, surface_x, surface_y, 1 / scaling,  1 / scaling, rot + rot_grid[g_x, g_y], col, proximity);	
 					}
 				}

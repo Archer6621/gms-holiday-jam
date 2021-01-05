@@ -56,7 +56,15 @@ if (behaviour_disabled) {
 	s_emission_strength = 1.0;	
 }
 
-event_user(0)
-//else {	
-//	part_emitter_clear(global.ps, ash_emitter);
-//}
+prev_integrity = integrity;
+if (in_shockwave) {
+	integrity -= dts;	
+}
+if (integrity < 0 and not behaviour_disabled) {
+	event_user(0);
+	behaviour_disabled = true;	
+}
+if (integrity < critical_integrity * max_integrity and prev_integrity >= critical_integrity * max_integrity) {
+	event_user(1);	
+}
+integrity = clamp(integrity, 0, max_integrity);

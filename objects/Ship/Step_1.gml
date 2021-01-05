@@ -7,3 +7,8 @@ go_right = false;
 go_forward = false;
 go_back = false;
 use_afterburner = false;
+do_burst = false;
+
+
+// Other properties
+consumed_energy = false;

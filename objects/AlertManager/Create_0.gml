@@ -7,6 +7,7 @@ display_rate_variation = 0.05 * room_speed;
 fade_after = 1; // seconds;
 fade = false;
 voice_clip = undefined;
+voice_clip_audio = noone;
 current_message = "";
 display_message = "";
 notification_queue = ds_queue_create();
@@ -34,4 +35,12 @@ function queue_notification(message_string, alert_sound, voice_clip, priority) {
 			ds_queue_enqueue(temp);
 		}
 	}
+}
+
+function announce(voice_clip) {
+	self.voice_clip = undefined;
+	if (audio_is_playing(voice_clip_audio)) {
+		audio_stop_sound(voice_clip_audio);
+	}
+	voice_clip_audio = audio_play_sound(voice_clip, 0, 0);
 }

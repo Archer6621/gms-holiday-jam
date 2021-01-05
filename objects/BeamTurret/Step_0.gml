@@ -13,3 +13,8 @@ if (behaviour_disabled) {
 	alarm_stop(0);
 	alarm_stop(1);
 }
+
+if (not behaviour_disabled) {
+	var dts = 1 / room_speed;
+	speed = speed / (1 + dts * 2);	
+}

@@ -1,9 +1,4 @@
-/// @description Insert description here
+/// @description Integrity Failure
 // You can write your code in this editor
-
-// Override event to disable this behaviour
-if (in_shockwave) {
-	behaviour_disabled = true;
-} else {
-	behaviour_disabled = false;
-}
+create_spark(c_white, x, y, 0.5 * image_xscale, true);
+audio_play_sound_at(choose(wave_hit, wave_hit_2), x, y, 0, 1000, 0, 2, 0, 0);

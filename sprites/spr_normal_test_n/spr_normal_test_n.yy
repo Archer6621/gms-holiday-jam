@@ -17,8 +17,8 @@
   "width": 466,
   "height": 466,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "bg_normals",
+    "path": "texturegroups/bg_normals",
   },
   "swatchColours": null,
   "gridX": 0,

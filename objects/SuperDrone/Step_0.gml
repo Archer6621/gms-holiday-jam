@@ -4,9 +4,12 @@
 // Inherit the parent event
 event_inherited();
 
-// slower outside of nova
+if (behaviour_disabled) {
+	exit;	
+}
 
-if (not behaviour_disabled) {
+// slower outside of nova
+if (not in_shockwave) {
 	var dts = 1 / room_speed;
 	motion_add(direction + 180, dts * 1.0 * max_speed);	
 }

@@ -9,7 +9,6 @@ image_angle = 45 + array_choose(range(0, 4, 90));
 image_xscale = 2;
 image_yscale = image_xscale;
 density = 10;
-p_friction = 5;
 interval = 1.0;
 warn_interval = 0.25;
 

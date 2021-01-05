@@ -2,15 +2,33 @@
 // You can write your code in this editor
 event_inherited();
 
+
+
+if (behaviour_disabled) {
+	exit;	
+}
+
 var dts = 1 / room_speed;
 
 if (alarm_get(0) == -1) {
 	#region Input
 
-	if (can_use_afterburner() and use_afterburner) {
-		//create_spark(c_orange, x, y, 1, false);
-		motion_add(image_angle, 0.1 * dts * acceleration_rate);
-		part_particles_create(global.ps_add, x, y, global.afterburner_particle, 1);
+	if (go_forward and use_afterburner) {
+		if (consume_energy(dts)) {
+			motion_add(image_angle, 0.1 * dts * acceleration_rate);
+			using_afterburner = true;
+			part_particles_create(global.ps_add, x, y, global.afterburner_particle, 1);
+		}
+	} else {
+		using_afterburner = false;
+	}
+	
+	if (go_forward and do_burst) {
+		if (consume_energy(1)) {
+			motion_add(image_angle, max_speed);
+			audio_play_sound_at(hawk_engine_burst, x, y, 0, 1000, 0, 2, 0, 0);
+			part_particles_create(global.ps_add, x, y, global.burst_particle, 100);
+		}
 	}
 
 	if (go_forward) {
@@ -39,18 +57,14 @@ if (alarm_get(0) == -1) {
 }
 
 #region Resources
-if (use_afterburner) {
-	afterburner_charge -= dts * 1.0;
-} else {
-	afterburner_charge += dts * afterburner_charge_rate;
+// Reactor and afterburner
+if (not consumed_energy) {
+	reactor_charge += dts * reactor_charge_rate;
 }
-if (afterburner_charge < 0) {
-	afterburner_depleted = true;	
+if (reactor_charge > 0.5 * reactor_capacity) {
+	reactor_overheated = false;	
 }
-if (afterburner_charge > 0.5 * afterburner_capacity) {
-	afterburner_depleted = false;	
-}
-afterburner_charge = clamp(afterburner_charge, 0, afterburner_capacity);
+reactor_charge = clamp(reactor_charge, 0, reactor_capacity);
 #endregion
 
 #region Limits
@@ -70,16 +84,17 @@ audio_emitter_position(engine_emitter, x, y, 0.0);
 audio_emitter_velocity(engine_emitter, hspeed, vspeed, 0.0);
 audio_emitter_position(afterburner_emitter, x, y, 0.0);
 audio_emitter_velocity(afterburner_emitter, hspeed, vspeed, 0.0);
+if (using_afterburner) {
+	audio_emitter_gain(afterburner_emitter, 2.0);	
+} else {
+	audio_emitter_gain(afterburner_emitter, 0.0);	
+}
+
 if (go_forward) {
 	audio_emitter_gain(engine_emitter, 1.0);	
 } else {
 	audio_emitter_gain(engine_emitter, 0.0);	
 }
 
-if (can_use_afterburner() and use_afterburner)  {
-	audio_emitter_gain(afterburner_emitter, 2.0);		
-} else {
-	audio_emitter_gain(afterburner_emitter, 0.0);		
-}
 
 #endregion

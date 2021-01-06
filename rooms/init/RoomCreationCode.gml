@@ -5,6 +5,6 @@ instance_create(AlertManager);
 instance_create(UpgradeManager);
 instance_create(RoomManager);
 show_debug_overlay(true);
-window_set_size(0.75 * 1920, 0.75 * 1080);
+window_set_size(1920,  1080);
 window_set_position(0, 0);
 global.room_manager.room_goto_transition(intermission);

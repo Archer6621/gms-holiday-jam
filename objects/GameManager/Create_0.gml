@@ -8,7 +8,6 @@ global.dts = 1 / room_speed;
 global.levels = [level_1, level_2, level_3, level_4];
 global.current_level = -1;
 global.ui_alpha = 0.95;
-global.draw_one = true;
 global.persistent_integrity = -1;
 global.double_tap_time = 0.2;
 hawk_max_integrity = -1;
@@ -16,7 +15,7 @@ hawk_max_integrity = -1;
 function go_to_next_level() {
 	global.current_level += 1;
 	print("Going to level:", room_get_name(global.levels[global.current_level]));
-	global.room_manager.room_goto_transition(global.levels[global.current_level]);
+	global.room_manager.room_goto_transition(global.levels[global.current_level], 2, 0.75);
 }
 
 // Particle Management

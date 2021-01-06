@@ -1,5 +1,13 @@
 /// @description Insert description here
 // You can write your code in this editor
+
+// Ignore warping
+if (other.object_index==Hawk) {
+	if (other.warping) {
+		exit;	
+	}
+}
+
 if (not ds_map_exists(collision_map, other.id)) {
 	audio_play_sound_at(col_1, x, y, 0, 1000, 0, 2, 0, 0);
 	rel_hspeed = other.hspeed - self.hspeed;

@@ -2,8 +2,8 @@
 // You can write your code in this editor
 
 global.room_manager = id;
-transition_speed_out = 0.75;
-transition_speed_in = transition_speed_out;
+transition_speed_out = 0.75;	// Transition speed OUT of CURRENT room
+transition_speed_in = transition_speed_out; // Transition speed INTO the NEXT room
 room_to_go = noone;
 draw_color = c_black;
 blend_mode = bm_normal;

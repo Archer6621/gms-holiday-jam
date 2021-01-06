@@ -13,6 +13,7 @@ prev_proximity = proximity;
 proximity = transition(inv_y, vol_start, vol_end, vol_transition);
 
 if (proximity < 0.0001) {
+	update_env_proximity(0);
 	exit;	
 } 
 
@@ -43,10 +44,7 @@ for (var i = 0; i < array_length(self.objects); i += 1) {
 }
 
 
-for (var j = 0; j < array_length(self.env_layers); j += 1) {
-	env_layer = self.env_layers[j];
-	env_layer.proximity = self.proximity;
-}
+update_env_proximity(proximity);
 
 // Trigger stuff upon entering
 if (prev_proximity < 0.0001 and proximity >= 0.0001 and not entered) {

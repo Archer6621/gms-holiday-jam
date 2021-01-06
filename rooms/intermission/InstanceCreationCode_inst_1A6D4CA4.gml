@@ -5,7 +5,7 @@ create_count(
 	sprite_width / 2,
 	sprite_height / 2,
 	true,
-	new Label("TIME", true)
+	new Label("TIME UNITS REMAINING", true)
 )
 
 on_hover = function () {

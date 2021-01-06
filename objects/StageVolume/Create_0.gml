@@ -14,6 +14,13 @@ proximity = 0;
 prev_proximity = 0;
 entered = false;
 
+function update_env_proximity(val) {
+	for (var j = 0; j < array_length(self.env_layers); j += 1) {
+		env_layer = self.env_layers[j];
+		env_layer.proximity = val;
+	}	
+}
+
 // Particles
 //ps = part_system_create();
 //em = part_emitter_create(ps);

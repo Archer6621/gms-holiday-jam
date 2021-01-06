@@ -3,7 +3,7 @@
 
 global.upgrade_manager = self.id;
 
-upgrade_credits = 3;
+upgrade_credits = 1;
 
 abilities = [];
 core_abilities = []; // Tree roots

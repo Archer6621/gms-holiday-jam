@@ -15,9 +15,9 @@ if (instance_exists(global.hawk)) {
 		
 		// Add credits based on ahead-ness
 		if (global.hawk.in_shockwave) {
-			global.upgrade_manager.upgrade_credits += 1;	
+			global.upgrade_manager.upgrade_credits += 0;	// Maybe on easy difficulty grant a point anyway
 		} else {
-			global.upgrade_manager.upgrade_credits += 2;
+			global.upgrade_manager.upgrade_credits += 1;
 		}
 		
 	} else if (all_true(in_area, exec) and not arrived) {

@@ -59,6 +59,22 @@ function any_true(conditions, key) {
 	return cond;
 }
 
+function get(struct, variable, default_value) {
+	return variable_struct_exists(struct, variable) ? struct[$variable] : default_value;
+}
+
+function merge(struct, override_struct) {
+	var original_names = variable_struct_get_names(struct);;
+	var names = variable_struct_get_names(override_struct);
+	var new_struct = {}
+	for (var i = 0; i < array_length(original_names); i += 1) {
+		new_struct[$original_names[i]] = struct[$original_names[i]];
+	}
+	for (var i = 0; i < array_length(names); i += 1) {
+		new_struct[$names[i]] = override_struct[$names[i]];
+	}
+	return new_struct;
+}
 
 function delayed_action(action, delay, args) {
 	var delayer = instance_create(Delayer);
@@ -137,6 +153,15 @@ function range(r_start, r_end, step) {
 	return range_array;
 }
 
+function array_constant(size, const) {
+	array = [];
+	array[size - 1] = const;
+	for (var i = 0; i < size; i++) {
+		array[i] = const;	
+	}
+	return array;
+}
+
 function is_on_screen(margin) {
 	if (margin==undefined) {
 		margin = 0;	
@@ -188,9 +213,14 @@ function array_contains(array, element) {
 }
 
 function print() {
+	precision = 10;
 	var str = "";
 	for (var i = 0; i < argument_count; i++) {
-		str += string(argument[i]) + " ";	
+		var v = argument[i]
+		//if (is_real(v)) {
+		//		v = string_format(v, precision, precision);
+		//}
+		str += string(v) + " ";	
 	}
 	show_debug_message(str);
 }

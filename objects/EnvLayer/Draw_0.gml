@@ -13,17 +13,26 @@ if (proximity > 0.01) {
 	rot += dts * tile_rotation_dynamic;
 	col = merge_colour(c_white, depth_color, depth_blend);
 	random_set_seed(instance_count);
+	
 	for (var s = 0; s < array_length(surfaces); s+=1) {
 		var surf = surfaces[s];
-		var surf_n = surfaces_n[s];
-		if (surface_exists(surf) and surface_exists(surf_n)) {
+		var surf_n = noone;
+		if (lighting) {
+			var surf_n = surfaces_n[s];
+		}
+		if (surface_exists(surf) and (surface_exists(surf_n) or not lighting)) {
 			if (redraw[s]) {
 				surface_set_target(surf);
 				draw_clear_alpha(c_black, 0);
-				surface_reset_target();
-				surface_set_target(surf_n);
-				draw_clear_alpha(c_black, 0);
-				surface_reset_target();
+				if (not lighting) {
+					shader_set(hue_shift_shader);	
+				}
+				if (lighting) {
+					surface_reset_target();
+					surface_set_target(surf_n);
+					draw_clear_alpha(c_black, 0);
+					surface_reset_target();
+				}
 				var amount = density * sw * sh;
 				for (var i = 0 ; i < amount ; i++) {
 					var s_index = irandom(array_length(sprites)-1);
@@ -41,7 +50,12 @@ if (proximity > 0.01) {
 					if (sw - 2 * clearance < 0 or sh - 2 * clearance < 0) {
 						continue;
 					}
-					surface_set_target(surf);
+					if (lighting) {
+						surface_set_target(surf);
+						shader_set(hue_shift_shader);
+					}
+					shader_set_uniform_f(u_h_shift,  hue_shift_min + random(hue_shift_max - hue_shift_min));
+					shader_set_uniform_f(u_s_shift,  sat_shift_min + random(sat_shift_max - sat_shift_min));
 					draw_sprite_ext(
 						sprite, 
 						0, 
@@ -51,33 +65,43 @@ if (proximity > 0.01) {
 						scaling * ys,
 						random(rotation_amount),
 						c_white, 
-						opacity_min + random(1 - opacity_min)
+						opacity_min + random(opacity_max - opacity_min)
 					);
-					surface_reset_target();
-					surface_set_target(surf_n);
-					draw_sprite_ext(
-						sprite_n, 
-						0, 
-						scaling * xp, 
-						scaling * yp, 
-						scaling * xs, 
-						scaling * ys,
-						random(rotation_amount),
-						c_white, 
-						opacity_min + random(1 - opacity_min)
-					);
+					if (lighting) {
+						shader_reset();
+						surface_reset_target();
+						surface_set_target(surf_n);
+						draw_sprite_ext(
+							sprite_n, 
+							0, 
+							scaling * xp, 
+							scaling * yp, 
+							scaling * xs, 
+							scaling * ys,
+							random(rotation_amount),
+							c_white, 
+							opacity_min + random(opacity_max - opacity_min)
+						);
+						surface_reset_target();
+					}
+				}
+				if (not lighting) {
+					shader_reset();
 					surface_reset_target();
 				}
-				//surface_reset_target();
 				redraw[s] = false;
 			}
 		} else {
 			surf = surface_create(scaling * sw, scaling * sh);
-			surf_n = surface_create(scaling * sw, scaling * sh);
+			if (lighting) {
+				surf_n = surface_create(scaling * sw, scaling * sh);
+			}
 			redraw[s] = true;
 		}
 		surfaces[s] = surf;
-		surfaces_n[s] = surf_n;
+		if (lighting) {
+			surfaces_n[s] = surf_n;
+		}
 	}
 	
 	// Drawing is done in one pass per variant
@@ -85,6 +109,7 @@ if (proximity > 0.01) {
 	// since then we only have to do a single pass through the grid
 	// but usually the on-screen grid is insignificantly small
 	//print("Drawing: ", id, sprite_get_name(sprites[0]), proximity);
+	gpu_set_blendmode(blend_mode);
 	if (lighting) {
 		shader_set(bg_light_shader);
 		shader_set_uniform_f(u_ambient, 0.5);
@@ -125,6 +150,7 @@ if (proximity > 0.01) {
 			}
 		}
 	}
+	gpu_set_blendmode(bm_normal);
 	if (lighting) {
 		shader_reset();
 	}

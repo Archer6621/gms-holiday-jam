@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_button",
-    "path": "sprites/spr_button/spr_button.yy",
+    "name": "spr_glass_2",
+    "path": "sprites/spr_glass_2/spr_glass_2.yy",
   },
   "solid": false,
   "visible": true,

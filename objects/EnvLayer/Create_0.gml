@@ -1,17 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-overlap = 0.4;
-scaling = 0.5;
-sw = 1024;
-sh = 1024;
-surfaces = [noone, noone, noone];
-surfaces_n = [noone, noone, noone];
+// Shader uniform 
+u_h_shift = shader_get_uniform(hue_shift_shader, "h_shift");
+u_s_shift = shader_get_uniform(hue_shift_shader, "s_shift");
 
-redraw = [true, true, true];
-lighting = false;
-
-rot = 0;
 u_ambient = shader_get_uniform(bg_light_shader, "ambient");
 u_lighting_intensity = shader_get_uniform(bg_light_shader, "lighting_intensity");
 u_emission_strength = shader_get_uniform(bg_light_shader, "emission_strength");
@@ -22,10 +15,28 @@ u_depth = shader_get_uniform(bg_light_shader, "depth");
 normal_sampler = shader_get_sampler_index(bg_light_shader, "normal");
 emission_sampler = shader_get_sampler_index(bg_light_shader, "emission");
 
-// Initializations
-proximity = 0;
-par = 1;
+// Other constants
+grid_size = 12;
+
+// Variable initializations
+proximity = 1; // Visible by default
+rot = 0;
+scaling = 0.5;
+sw = 1024;
+sh = 1024;
+surfaces = [noone, noone, noone];
+surfaces_n = [noone, noone, noone];
+redraw = [true, true, true];
+depth_blend = 0;
+grid = []
+rot_grid = []
+
+// Property initializations (defaults are in factory function "create_env_layer")
+overlap = 0.4;
+lighting = false;
+par = 0;
 sprites = [];
+sprites_probs = []; 
 density = 0;
 scale_min = 0;
 scale_max = 0;
@@ -33,11 +44,11 @@ scale_desync = 0;
 rotation_amount = 0;
 tile_rotation_amount = 0;
 tile_rotation_dynamic = 0;
-grid = []
-rot_grid = []
-depth_color = c_white;
-depth_blend = 0;
+depth_color = c_black;
 opacity_min = 0;
-grid_size = 4 * array_length(surfaces);
-
-
+opacity_max = 0;
+hue_shift_min = 0;
+hue_shift_max = 0;
+sat_shift_min = 0;
+sat_shift_max = 0;
+blend_mode = bm_normal;

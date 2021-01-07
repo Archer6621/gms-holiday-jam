@@ -4,7 +4,8 @@
 data = 2;
 data_extracted = 0;
 extract_sound = noone;
-extraction_radius = 200;
+var ds = global.game_manager.difficulty_scaling;
+extraction_radius = 325 - 75 * ds;
 notify_dist = 3000;
 hawk_dist = room_height;
 prev_hawk_dist = hawk_dist;

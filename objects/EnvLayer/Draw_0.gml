@@ -4,13 +4,13 @@ if (proximity > 0.01) {
 	var cam = view_camera[0];
 	var cw = camera_get_view_width(cam);
 	var ch = camera_get_view_height(cam);
-	var cx = camera_get_view_x(cam);
-	var cy = camera_get_view_y(cam);
+	var cx = override ? x : camera_get_view_x(cam);
+	var cy = override ? y : camera_get_view_y(cam);
 	var pcx = par * cx;
 	var pcy = par * cy;
 	var dts = 1 / room_speed;
 
-	rot += dts * tile_rotation_dynamic;
+	rot += rotation_multiplier * dts * tile_rotation_dynamic;
 	col = merge_colour(c_white, depth_color, depth_blend);
 	random_set_seed(instance_count);
 	
@@ -34,6 +34,7 @@ if (proximity > 0.01) {
 					surface_reset_target();
 				}
 				var amount = density * sw * sh;
+				gpu_set_blendmode(splat_blend_mode)
 				for (var i = 0 ; i < amount ; i++) {
 					var s_index = irandom(array_length(sprites)-1);
 					var sprite = sprites[s_index];
@@ -85,6 +86,7 @@ if (proximity > 0.01) {
 						surface_reset_target();
 					}
 				}
+				gpu_set_blendmode(bm_normal);
 				if (not lighting) {
 					shader_reset();
 					surface_reset_target();
@@ -112,41 +114,53 @@ if (proximity > 0.01) {
 	gpu_set_blendmode(blend_mode);
 	if (lighting) {
 		shader_set(bg_light_shader);
-		shader_set_uniform_f(u_ambient, 0.5);
-		shader_set_uniform_f(u_lighting_intensity, 0.75);
+		shader_set_uniform_f(u_ambient, shader_light_multiplier * 0.5);
+		shader_set_uniform_f(u_lighting_intensity, shader_light_multiplier * 1.25);
 		shader_set_uniform_f(u_emission_strength, 0);
 		shader_set_uniform_f(u_normal_strength, 0.5);
 		shader_set_uniform_f(u_depth, depth);
 	}
+	//var x_bound = max(10000, camera_get_view_x(view_camera[0]));
+	//var y_bound = max(10000, camera_get_view_y(view_camera[0]));
 	for (var i = 0; i < array_length(surfaces); i += 1) {
 		var surf = surfaces[i];
 		var surf_n = surfaces_n[i]
 		if (lighting) {	
 			texture_set_stage(normal_sampler, surface_get_texture(surf_n)); 	
 		}
+		// Tends to clip wrongly due to rotations, needs an extra factor to take this into account
 		if (surface_exists(surf) and (not lighting or surface_exists(surf_n))) {
 			var asw = sw * (1 - overlap);
 			var ash = sh * (1 - overlap);
-			var i_w = ceil(pcx / asw)
-			var i_h = ceil(pcy / ash)
+			var i_w = ceil((pcx) / asw)
+			var i_h = ceil((pcy) / ash)
 			var x_count = ceil((cw + 2 * sw) / asw);
 			var y_count = ceil((ch + 2 * sh) / ash);
+			
+			if (override) {
+				surface_set_target(override_surf);
+			}
+			
 			for (var i_x = 0; i_x < x_count + 2; i_x += 1) {
 				for (var i_y = 0; i_y < y_count + 2; i_y += 1) {
-					var safety = 10; // So it doesn't go below zero, gamemaker's mod can't deal with it and custom function is very slow
+					var safety = 1000000;
 					var g_x = (i_h + i_y + safety) % grid_size;
 					var g_y = (i_w + i_x + safety) % grid_size;
 					if (grid[g_x, g_y] == i) {
-						var surface_x = (i_w + i_x - 1) * asw - (sw - asw) + (1 - par) * cx;
-						var surface_y = (i_h + i_y - 1) * ash - (sh - ash) + (1 - par) * cy;
+						var surface_x = (i_w + i_x - 1) * asw - (sw - asw) + (1 - par) * cx - override * x;
+						var surface_y = (i_h + i_y - 1) * ash - (sh - ash) + (1 - par) * cy - override * y;
 						// This breaks batches pretty badly, replaced with dfdx solution
 						//if (lighting and global.frames) {
 						//	shader_set_uniform_f(u_cos_angle, cos(degtorad(rot + rot_grid[g_x, g_y])));
 						//	shader_set_uniform_f(u_sin_angle, sin(degtorad(rot + rot_grid[g_x, g_y])));
 						//}
+
 						draw_surface_ext(surf, surface_x, surface_y, 1 / scaling,  1 / scaling, rot + rot_grid[g_x, g_y], col, proximity);	
 					}
 				}
+			}
+			if (override) {
+				surface_reset_target();	
 			}
 		}
 	}

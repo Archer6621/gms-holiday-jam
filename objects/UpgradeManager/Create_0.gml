@@ -8,9 +8,10 @@ upgrade_credits = 1;
 abilities = [];
 core_abilities = []; // Tree roots
 
-function add_ability(dep, ic) {
+function add_ability(dep, ic, disable) {
+	disable = is_undefined(disable) ? false : disable;
 	ic = is_undefined(ic) ? spr_ability_placeholder : ic;
-	var ability = {dependency: dep, icon: ic, unlocked: false, discovered: false, description: "", restrict: undefined}
+	var ability = {dependency: dep, icon: ic, unlocked: false, discovered: false, description: "", restrict: undefined, disabled: disable}
 	array_push(abilities, ability);
 	if (is_undefined(dep)) {
 		array_push(core_abilities, ability);	
@@ -39,12 +40,14 @@ function restrict(ability1, ability2) {
 function discover_random_ability() {
 	var relevant_abilities = [];
 	for (var i = 0; i < array_length(abilities); i++) {
-		if (not abilities[i].discovered) {
+		if (not abilities[i].discovered and not abilities[i].disabled) {
 			array_push(relevant_abilities, abilities[i]);
 		}
 	}
+	
 	if (array_length(relevant_abilities) > 0) {
-		array_choose(relevant_abilities).discovered = true;;
+		randomize();
+		array_choose(relevant_abilities).discovered = true;
 	}
 }
 
@@ -59,7 +62,7 @@ emp_blast_ability = add_ability(undefined, spr_ability_emp);
 	emp_immunity_ability = add_ability_discovered(emp_blast_ability, spr_ability_emp_immune);
 	restrict(emp_screen_ability, emp_immunity_ability);
 
-blink_ability = add_ability(undefined, spr_ability_blink);
+blink_ability = add_ability(undefined, spr_ability_blink, true);
 	blink_free_ability = add_ability_discovered(blink_ability, spr_ability_blink_energy);
 	ghost_blink_ability = add_ability_discovered(blink_ability, spr_ability_blink_ghost);
 	restrict(blink_free_ability, ghost_blink_ability);

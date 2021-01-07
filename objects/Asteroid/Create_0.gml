@@ -6,7 +6,7 @@ event_inherited();
 rotation_speed = 10 + random(20);
 
 // Physics
-density = 2;
+density = 3;
 elasticity = 1.0;
 p_friction = 0.000001;
 

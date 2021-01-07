@@ -2,20 +2,33 @@
 // You can write your code in this editor
 
 global.game_manager = self.id;
-global.frames = 0;
+global.endless = false;
 global.hawk = noone;
 global.dts = 1 / room_speed;
-global.levels = [level_1, level_2, level_3, level_4];
+global.levels = [level_1, level_2, level_3, level_4, level_5];
 global.current_level = -1;
 global.ui_alpha = 0.95;
 global.persistent_integrity = -1;
 global.double_tap_time = 0.2;
+global.vaporization_factor = 0.5;
+difficulty_scaling = 1.0;
 hawk_max_integrity = -1;
 
 function go_to_next_level() {
+	global.endless = false;
 	global.current_level += 1;
 	print("Going to level:", room_get_name(global.levels[global.current_level]));
-	global.room_manager.room_goto_transition(global.levels[global.current_level], 2, 0.75);
+	global.room_manager.room_goto_transition(global.levels[global.current_level], 2, 0.75, c_black, c_aqua);
+}
+
+function end_session() {
+	global.room_manager.room_goto_transition(main_menu, 1, 0.5, c_black, c_white);	
+	global.manager.destroy_game_managers_next_room();
+}
+
+function end_session_win() {
+	global.room_manager.room_goto_transition(main_menu, 3.0, 0.75, c_aqua, c_white);	
+	global.manager.destroy_game_managers_next_room();
 }
 
 // Particle Management
@@ -82,6 +95,13 @@ part_type_size(global.emp_drone_engine_particle , 0.5, 0.5, -0.01, 0.0);
 part_type_alpha2(global.emp_drone_engine_particle , 1.0, 0.0);
 part_type_color2(global.emp_drone_engine_particle ,  c_aqua, c_purple);
 part_type_life(global.emp_drone_engine_particle , 0.5 * room_speed, 1 * room_speed);
+
+global.beam_drone_engine_particle = part_type_create();
+part_type_shape(global.beam_drone_engine_particle , pt_shape_flare);
+part_type_size(global.beam_drone_engine_particle , 0.5, 0.5, -0.01, 0.0);
+part_type_alpha2(global.beam_drone_engine_particle , 1.0, 0.0);
+part_type_color2(global.beam_drone_engine_particle ,  c_orange, c_yellow);
+part_type_life(global.beam_drone_engine_particle , 0.5 * room_speed, 1 * room_speed);
 
 global.ash_particle = part_type_create();
 part_type_shape(global.ash_particle, pt_shape_flare);

@@ -3,9 +3,10 @@
 event_inherited();
 
 // Constants
-acceleration_rate = 30;
+acceleration_rate = 27;
 turn_acceleration_rate = 5000;
-max_speed = 6;
+var ds = global.game_manager.difficulty_scaling
+max_speed = power(ds, 0.25) * 6;
 max_turn_speed = 270;
 knockout_speed = 2;
 knockout_factor = 1;

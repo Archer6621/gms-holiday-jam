@@ -10,7 +10,8 @@ image_xscale = 2;
 image_yscale = image_xscale;
 density = 10;
 interval = 1.0;
-warn_interval = 0.25;
+var ds = global.game_manager.difficulty_scaling
+warn_interval = 0.25 / ds;
 
 hole_x = lengthdir_x(sprite_width * 0.4, image_angle);
 hole_y = lengthdir_y(sprite_width * 0.4, image_angle);

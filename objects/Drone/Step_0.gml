@@ -18,8 +18,8 @@ if (instance_exists(global.hawk) and not behaviour_disabled) {
 			}
 		}
 
-		var deviation = angle_difference(image_angle, point_direction(x, y, lead_x, lead_y));
-
+		deviation = angle_difference(image_angle, point_direction(x, y, lead_x, lead_y));
+		distance = point_distance(x, y, global.hawk.x, global.hawk.y)
 
 		if (deviation < 0) {
 			go_left = 1;	

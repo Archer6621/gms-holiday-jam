@@ -39,7 +39,7 @@ function create_env_layer(param_struct){
 	var allowed_names = ["shaded", "sprites", "sprites_probs", "parallax", "density", "scale_min", 
 	"scale_max", "scale_desync", "rotation_amount", "tile_rotation_amount", "tile_rotation_dynamic", "depth_color", 
 	"depth_color_offset", "opacity_min", "opacity_max", "hue_shift_min", "hue_shift_max", "sat_shift_min", "sat_shift_max",
-	"blend_mode"
+	"blend_mode", "shader_light_multiplier", "splat_blend_mode"
 	];
 	var struct_names = variable_struct_get_names(param_struct);
 	for (var i = 0; i < array_length(struct_names); i += 1) {
@@ -95,6 +95,8 @@ function create_env_layer(param_struct){
 	env_layer.sat_shift_min = get(param_struct, "sat_shift_min", 0);
 	env_layer.sat_shift_max = get(param_struct, "sat_shift_max", env_layer.sat_shift_min);
 	env_layer.blend_mode =  get(param_struct, "blend_mode", bm_normal);
+	env_layer.shader_light_multiplier = get(param_struct, "shader_light_multiplier", 1.0);
+	env_layer.splat_blend_mode =  get(param_struct, "splat_blend_mode", bm_normal);
 	
 	// Generate grid
 	for (var i = 0; i < env_layer.grid_size; i += 1) {

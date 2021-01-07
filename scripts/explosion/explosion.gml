@@ -45,7 +45,7 @@ function create_colored_explosion(xx, yy, scale, color, decay_color){
 }
 
 function create_spark(color, xx, yy, scale, follow) {
-	create_decaying_light(xx, yy, color, color, 200, 0.5, 2.0);
+	create_decaying_light(xx, yy, color, color, 50, 0.5, 1.0);
 	var spark = instance_create_depth(xx, yy, -1, Spark);
 	if (follow) {
 		spark.following = self.id;	
@@ -56,3 +56,13 @@ function create_spark(color, xx, yy, scale, follow) {
 	spark.image_angle = random(360);	
 }
 
+function create_debris(color, xx, yy, scale, follow) {
+	var debris = instance_create_depth(xx, yy, -1, Debris);
+	if (follow) {
+		debris.following = self.id;	
+	}
+	debris.image_blend = color;
+	debris.image_xscale = scale;
+	debris.image_yscale = scale;
+	debris.image_angle = random(360);	
+}

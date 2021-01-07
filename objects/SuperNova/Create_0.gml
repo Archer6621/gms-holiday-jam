@@ -3,8 +3,9 @@
 
 y = room_height + 800;
 
-supernova_speed = 800; // Pixels / sec
-terminal_horizon = 2500; 
+var ds = global.game_manager.difficulty_scaling;
+supernova_speed = power(ds, 0.75) * 800; // Pixels / sec
+terminal_horizon = 2500 + (1-ds) * 1000; 
 
 shockwave_emitter = audio_emitter_create();
 terminal_horizon_emitter = audio_emitter_create();

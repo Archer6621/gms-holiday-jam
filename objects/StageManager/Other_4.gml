@@ -4,7 +4,8 @@
 if (array_contains(global.levels, room)) {
 	// Hawk
 	var hawk = instance_create_layer(room_width/2, room_height + 100, "Instances", Hawk);
-	global.alert_manager.announce(snd_voice_disengaging);
+	// bit too much, and blocks critical hull notif
+	// global.alert_manager.announce(snd_voice_disengaging);
 	hawk.warping = true;
 	delayed_action(function(inst_id) {
 		if (instance_exists(inst_id)){
@@ -15,10 +16,6 @@ if (array_contains(global.levels, room)) {
 	}, 2.0, [hawk]);
 	instance_create(SuperNova);
 	instance_create_ui(WarpZone); // Have it on the foreground
-	if (global.persistent_integrity > -1) {
-		hawk.integrity = global.persistent_integrity;
-		hawk.prev_integrity = hawk.max_integrity;
-	}
 	
 	// Camera
 	zoom = 1.0;
@@ -28,20 +25,28 @@ if (array_contains(global.levels, room)) {
 	// Data extraction point
 	var x_margin = 1000;
 
-	
-	randomize()
-	var spawn_x = x_margin + random(room_width - x_margin);
-	var spawn_y = 0.1 * room_height + random(0.8 * room_height);
-	instance_create_depth(spawn_x, spawn_y, 0, DataExtractionPoint);
-	repeat(2) {
-		var nearest = instance_nearest(spawn_x, spawn_y, DataExtractionPoint); 
-		while (point_distance(spawn_x, spawn_y, nearest.x, nearest.y) < 7500) {
-			spawn_x = x_margin + random(room_width - x_margin);
-			spawn_y = 0.1 * room_height + random(0.8 * room_height);
-		}
+	if (not global.endless) {
+		randomize()
+		var spawn_x = x_margin + random(room_width - x_margin);
+		randomize();
+		var spawn_y = 0.1 * room_height + random(0.7 * room_height);
 		instance_create_depth(spawn_x, spawn_y, 0, DataExtractionPoint);
+		repeat(2) {
+			var nearest = instance_nearest(spawn_x, spawn_y, DataExtractionPoint);
+			var tries = 0;
+			while (point_distance(spawn_x, spawn_y, nearest.x, nearest.y) < 5000) {
+				randomize();
+				spawn_x = x_margin + random(room_width - x_margin);
+				randomize();
+				spawn_y = 0.1 * room_height + random(0.8 * room_height);
+				tries += 1;
+				if (tries > 8) {
+					break;	
+				}
+			}
+			instance_create_depth(spawn_x, spawn_y, 0, DataExtractionPoint);
+		}
 	}
-	
 	// Undiscover core abilities that were discovered but not unlocked
 	var abilities = global.upgrade_manager.core_abilities;
 	for (var i = 0; i < array_length(abilities); i++) {

@@ -10,7 +10,7 @@ var cy = camera_get_view_y(view_camera[0]);
 if (instance_exists(global.hawk)) {
 	audio_listener_velocity(global.hawk.hspeed, global.hawk.vspeed, 0.0);
 	cx = clamp(global.hawk.x - cw/2, 0, room_width - cw);
-	cy = clamp(global.hawk.y - 0.7 * ch, 0, room_height - ch);
+	cy = clamp(global.hawk.y - 0.7 * ch,  global.endless ? global.hawk.y-ch : 0, room_height - ch);
 	camera_set_view_pos(view_camera[0], cx, cy);
 }
 

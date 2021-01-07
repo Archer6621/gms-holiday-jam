@@ -29,6 +29,7 @@ function draw() {
 }
 
 function draw_label(w, h) {
+	draw_set_font(font_small);
 	if (label.under) {
 		draw_set_halign(fa_center);
 		draw_text(x + w/2, y  + h + 0.1 * string_height(label.text), label.text);

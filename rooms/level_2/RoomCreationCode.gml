@@ -48,7 +48,7 @@ create_env_layer({
 	var env_layers = [
 		create_env_layer(astr),
 		create_env_layer(merge(colors, {sprites: [spr_nebula_5], parallax: 0.4, density: 0.00020, scale_min: 1, scale_max: 4, tile_rotation_dynamic: 2.0})),
-		create_env_layer(merge(colors, {sprites: [spr_nebula_5], parallax: 1.25, density: 0.00015, scale_min: 3, scale_max: 8, tile_rotation_dynamic: 1.25, opacity_max: 0.65}))
+		create_env_layer(merge(colors, {sprites: [spr_nebula_5], parallax: 1.25, density: 0.00045, scale_min: 2, scale_max: 3, tile_rotation_dynamic: 4, opacity_max: 0.2, splat_blend_mode: bm_add, blend_mode: bm_normal}))
 	] 
 	create_stage_volume([Asteroid, EMPDrone], 3000, 13000, 3000, 15, env_layers);
 }
@@ -65,8 +65,9 @@ create_env_layer({
 	var env_layers = [
 		create_env_layer({sprites: [spr_nebula_2], parallax: 0.25, density: 0.0002, scale_min: 1, scale_max: 12, scale_desync: 5, tile_rotation_dynamic: 1}),
 		create_env_layer({sprites: [spr_nebula_2], parallax: 0.15, density: 0.0002, scale_min: 0.5, scale_max: 9, scale_desync: 5, tile_rotation_dynamic: 0.5}),
-		create_env_layer(merge(astr, {parallax: 0.6, scale_min: 0.5, scale_max: 0.75, sat_shift_min: 0.9, sat_shift_max: 0.9, depth_color: c_maroon, depth_color_offset: 5})),
-		create_env_layer(merge(astr, {parallax: 0.3, scale_min: 0.25, scale_max: 0.5, sat_shift_min: 0.9, sat_shift_max: 0.9, depth_color: c_maroon, depth_color_offset: 5}))
+		create_env_layer(merge(astr, {parallax: 0.6, scale_min: 0.45, scale_max: 0.65, sat_shift_min: 0.9, sat_shift_max: 0.9, depth_color: merge_colour(c_maroon, c_black, 0.5), depth_color_offset: 5, shader_light_multiplier: 0.5})),
+		create_env_layer(merge(astr, {parallax: 0.3, scale_min: 0.2, scale_max: 0.35, sat_shift_min: 0.9, sat_shift_max: 0.9, depth_color: merge_colour(c_maroon, c_black, 0.5), depth_color_offset: 5, shader_light_multiplier: 0.5}))
 	]
 	create_stage_volume([RedAsteroid], 20000, 50000, 3000, 13, env_layers);
+	create_stage_volume([Drone], 35000, 50000, 3000, 1, []);
 }

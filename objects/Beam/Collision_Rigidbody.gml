@@ -3,7 +3,8 @@
 
 if (not array_contains(blacklist, other.id)) {
 	with (other) {
-		motion_add(other.image_angle, 25);
+		var ds = global.game_manager.difficulty_scaling;
+		motion_add(other.image_angle, power(ds, 0.75) * 25);
 	}
 	blacklist = array_append(blacklist, other.id);
 }

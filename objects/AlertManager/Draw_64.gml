@@ -6,6 +6,7 @@ var pa = draw_get_alpha();
 
 draw_set_halign(fa_center);
 draw_set_alpha((current_message!=display_message) * sin(0.4 * global.frames));
+draw_set_font(font_small);
 draw_text(0.5 * display_get_gui_width() + string_width(current_message) * 0.5 + 10, 0.25 * display_get_gui_height(), "<");
 draw_set_alpha(pa);
 if (fade) {

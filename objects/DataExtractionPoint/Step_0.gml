@@ -57,5 +57,8 @@ if (instance_exists(global.hawk)) {
 		
 		// Discover a random core ability
 		global.upgrade_manager.discover_random_ability();
+		
+		// Add upgrade credit
+		global.upgrade_manager.upgrade_credits += 1;
 	}
 }

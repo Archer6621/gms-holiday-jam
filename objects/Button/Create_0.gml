@@ -9,3 +9,6 @@ func = function() {
 clickable = function () {
 	return true;
 }
+
+text = "";
+text_scale = 1;

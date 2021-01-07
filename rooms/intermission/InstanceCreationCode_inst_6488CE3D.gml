@@ -8,3 +8,5 @@ on_hover = function () {
 		text = "Exit warp to find the next warpzone. NOTE: unspent time and discovered core tech that was not unlocked will go lost!"
 	}
 }
+
+text = "COMMENCE"

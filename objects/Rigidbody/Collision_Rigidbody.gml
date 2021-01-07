@@ -26,7 +26,9 @@ if (not ds_map_exists(collision_map, other.id)) {
 
 		// We have to resolve the entire collision here, because otherwise the collision will behave differently
 		// depending on the order of resolution
-		motion_add(bounce_dir, elasticity * factor * (1 - ratio) * rel_speed);
+		if (not stationary) {
+			motion_add(bounce_dir, elasticity * factor * (1 - ratio) * rel_speed);
+		}	
 		with (other) {
 			// Set all the variables correctly for debugging purposes
 			factor = other.factor;
@@ -35,7 +37,9 @@ if (not ds_map_exists(collision_map, other.id)) {
 			rel_hspeed = -other.rel_hspeed;
 			rel_vspeed = -other.rel_vspeed;
 			bounce_dir = other.bounce_dir + 180;
-			motion_add(self.bounce_dir, self.elasticity * self.factor * self.ratio * self.rel_speed);
+			if (not stationary) {
+				motion_add(self.bounce_dir, self.elasticity * self.factor * self.ratio * self.rel_speed);
+			}
 			
 			// Need this check: it's possible for the other object to have destroyed its map already
 			if (ds_exists(collision_map, ds_type_map)) {
@@ -44,6 +48,8 @@ if (not ds_map_exists(collision_map, other.id)) {
 		}
 	}
 } 
-move_outside_all(bounce_dir, rel_speed);
-motion_add(bounce_dir, 1 / room_speed);
+if (not stationary) {
+	move_outside_all(bounce_dir, rel_speed);
+	motion_add(bounce_dir, 1 / room_speed);
+}
 collision_map[? other.id] = true;

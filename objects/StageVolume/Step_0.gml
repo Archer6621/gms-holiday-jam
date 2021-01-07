@@ -27,9 +27,12 @@ for (var i = 0; i < array_length(self.objects); i += 1) {
 			other.count += 1;	
 		}
 	}
-
-	if (proximity >= random(1) and self.count < self.density) {
+	var ds = global.game_manager.difficulty_scaling;
+	randomize()
+	if (proximity >= random(2) and self.count < ds * self.density) {
+		randomize();
 		var spawn_x = random(room_width);
+		randomize();
 		var spawn_y = room_height - (ymin + random(ymax - ymin));
 		// Check if anything spawned nearby
 		var inst = instance_nearest(spawn_x, spawn_y, Rigidbody);
@@ -54,7 +57,7 @@ if (prev_proximity < 0.0001 and proximity >= 0.0001 and not entered) {
 			break;
 		}
 		
-		if (object_is_ancestor(objects[i], MineLayer) or objects[i]==MineLayer) {
+		if (object_is_ancestor(objects[i], MineLayer) or objects[i]==MineLayer or objects[i]==Mine) {
 			global.alert_manager.queue_notification("MINES AHEAD!", alert_1, snd_voice_mines_ahead);
 			break;
 		}

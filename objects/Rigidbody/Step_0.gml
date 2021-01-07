@@ -42,8 +42,8 @@ part_emitter_region(global.ps_top, ash_emitter, x-sprite_width/2, x+sprite_width
 if (in_shockwave) {
 	randomize();
 	part_emitter_stream(global.ps_top, ash_emitter, global.ash_particle, -8);
-	s_ambient = 0.03;
-	s_lighting_intensity = 0.05;
+	s_ambient = 0.25;
+	s_lighting_intensity = 0.15;
 }  else {
 	part_emitter_stream(global.ps_top, ash_emitter, global.ash_particle, 0);
 	s_lighting_intensity = 0.5;
@@ -58,7 +58,10 @@ if (behaviour_disabled) {
 
 prev_integrity = integrity;
 if (in_shockwave) {
-	integrity -= dts;	
+	integrity -= dts;
+	if (vaporize_shockwave and object_index != Hawk) {
+		instance_destroy();	
+	}
 }
 if (integrity < 0 and not behaviour_disabled) {
 	event_user(0);

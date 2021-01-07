@@ -30,6 +30,7 @@
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"BeamTurret","path":"objects/BeamTurret/BeamTurret.yy",},"parent":{"name":"EMPScreenExplosion","path":"objects/EMPScreenExplosion/EMPScreenExplosion.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"EMPScreenExplosion","path":"objects/EMPScreenExplosion/EMPScreenExplosion.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":7,"eventType":7,"collisionObjectId":null,"parent":{"name":"EMPScreenExplosion","path":"objects/EMPScreenExplosion/EMPScreenExplosion.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"Mine","path":"objects/Mine/Mine.yy",},"parent":{"name":"EMPScreenExplosion","path":"objects/EMPScreenExplosion/EMPScreenExplosion.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],

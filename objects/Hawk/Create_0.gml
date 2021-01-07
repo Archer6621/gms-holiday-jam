@@ -8,8 +8,13 @@ death_malfunction_sound = noone;
 critical_integrity_sound = noone;
 initialize_sound(hawk_engine, 1.5);
 max_integrity = 30;
-integrity = max_integrity;
+integrity = global.persistent_integrity==-1 ? max_integrity : global.persistent_integrity;
+prev_integrity = integrity;
+if (integrity < critical_integrity * max_integrity) {
+	event_user(1);	 // DOESN'T FIRE???
+}
 warping = false;
+warp_speeding = false;
 former_density = density;
 
 // Inputs
@@ -17,6 +22,9 @@ do_forceblast = false;
 do_burst = false;
 use_afterburner = false;
 do_emp_blast = false;
+
+var ds = global.game_manager.difficulty_scaling;
+knockout_speed /= ds
 
 if (global.upgrade_manager.mass_amplifier_ability.unlocked) {
 	density = former_density * 100;	
@@ -33,6 +41,7 @@ if (global.upgrade_manager.emp_immunity_ability.unlocked) {
 // Override
 knock_out = function(amount) {	
 	if (alarm_ready(0)) {
+		
 		var rounded  = ceil(knockout_factor * amount * knockout_speed) / knockout_speed;
 		alarm_set(0, room_speed * rounded);
 		var bar = create_bar(id, 

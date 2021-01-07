@@ -1,21 +1,33 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-event_inherited();
+
 var dts = 1 / room_speed;
 
 if (warping) {
 	direction = 90;
 	image_angle = 90;
-	speed = 0.9 * max_speed;
+	
+	if (warp_speeding) {
+	 speed += 0.01;	
+	} else {
+	 speed = 0.9 * max_speed;	
+	}
 	if (in_shockwave) {
 		integrity += dts;
 	}
 	exit;
 }
 
+event_inherited();
+
 if (behaviour_disabled) {
 	exit;	
+}
+
+if (in_shockwave) {
+	var ds = global.game_manager.difficulty_scaling;
+	integrity += (1 - ds) * dts;
 }
 
 if (global.upgrade_manager.flamethrower_ability.unlocked) {
@@ -59,6 +71,9 @@ if (integrity > critical_integrity * max_integrity) {
 	}
 } else {
 	follow_light.light_color = c_red;
+	if (not audio_is_playing(critical_integrity_sound)) {
+		critical_integrity_sound = audio_play_sound(critical_alert, 1, 1);	
+	}
 }
 
 
@@ -79,6 +94,7 @@ if (global.upgrade_manager.shock_wave_immunity_ability.unlocked) {
 		integrity += dts;
 	}
 }
+
 
 
 // Too spammy

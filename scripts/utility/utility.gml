@@ -213,7 +213,7 @@ function array_contains(array, element) {
 }
 
 function print() {
-	precision = 10;
+	//precision = 10;
 	var str = "";
 	for (var i = 0; i < argument_count; i++) {
 		var v = argument[i]
@@ -223,6 +223,18 @@ function print() {
 		str += string(v) + " ";	
 	}
 	show_debug_message(str);
+}
+
+function map(array, func) {
+	var new_array = [];
+	for (var i = 0; i < array_length(array); i += 1) {
+		new_array[i] = func(array[i]);	
+	}
+	return new_array;
+}
+
+function random_around(value, amount) {
+	return value - amount + 2 * random(amount)	
 }
 
 // Small convenience functions to use as keys and other things

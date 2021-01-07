@@ -24,6 +24,12 @@ max_integrity = 0.0001;
 integrity = max_integrity;
 critical_integrity = 0.25;
 prev_integrity = integrity;
+stationary = false;
+
+// Whether to get vaporized by shockwave
+randomize();
+vaporize_shockwave = random(1) < global.vaporization_factor;
+
 
 function get_mass() {
 	return image_xscale * image_yscale * density;	

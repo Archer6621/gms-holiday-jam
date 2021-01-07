@@ -30,6 +30,9 @@ redraw = [true, true, true];
 depth_blend = 0;
 grid = []
 rot_grid = []
+randomize();
+rotation_multiplier = 1 - random(2);
+rotation_multiplier += sign(rotation_multiplier) * 0.5;
 
 // Property initializations (defaults are in factory function "create_env_layer")
 overlap = 0.4;
@@ -51,4 +54,17 @@ hue_shift_min = 0;
 hue_shift_max = 0;
 sat_shift_min = 0;
 sat_shift_max = 0;
+shader_light_multiplier = 1.0;
 blend_mode = bm_normal;
+splat_blend_mode = bm_normal;
+
+// Overrides for other drawing tasks
+override = false;
+override_surf = noone;
+
+function set_override(spd, dir, surf) {
+	override = true;
+	speed = spd;
+	direction = dir;
+	override_surf = surf;
+}

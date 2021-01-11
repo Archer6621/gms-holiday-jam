@@ -21,4 +21,4 @@ Some cool stuff it features in terms of tech:
 - Some nice utility functions that make use of the newly added functions for GML (e.g. delayed actions, conditional actions, proximity checkers)
 - A neat way to decouple control from the controlling object, e.g. Ships are both used by the player and by AI Drones
 
-Feel free to pick it apart. I will likely take this project as a base for future projects, after some cleaning up, and perhaps extract some features such as the backgrounds in order to turn them into a useable marketplace assets.
+Feel free to pick it apart. I will likely take this project as a base for future projects, after some cleaning up, and perhaps extract some features such as the backgrounds in order to turn them into a useable marketplace assets (e.g. by improving the API and adding some extra features that were omitted here due to time constraints).

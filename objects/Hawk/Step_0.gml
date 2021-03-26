@@ -9,7 +9,7 @@ if (warping) {
 	image_angle = 90;
 	
 	if (warp_speeding) {
-	 d_speed += 0.01;	
+	 d_speed += d(0.01);	
 	} else {
 	 d_speed = 0.9 * max_speed;	
 	}

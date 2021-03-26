@@ -52,7 +52,7 @@ if (alarm_ready(0)) {
 	#endregion
 } else {
 	image_angle += dts * 360 * knockout_speed;
-	d_speed = d_speed / 1.005;
+	d_speed = d_speed / (1.0 + d(0.005));
 }
 
 #region Resources
@@ -68,7 +68,7 @@ reactor_charge = clamp(reactor_charge, 0, reactor_capacity);
 
 #region Limits
 if (d_speed > max_speed) {
-	d_motion_add(direction + 180, dts * acceleration_rate);
+	d_motion_add(direction + 180, 1.05 * dts * acceleration_rate);
 	//d_speed = d_speed / (1 + p_friction / game_get_speed(gamespeed_fps));
 }
 

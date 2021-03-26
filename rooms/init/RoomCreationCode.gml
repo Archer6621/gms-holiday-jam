@@ -1,4 +1,6 @@
-
+delta_init();
+delta_set_max_lag_compensation(20);
+instance_create(DeltaManager);
 // Wipe and create per sesssion
 //instance_create(GameManager);
 instance_create(LightManager);
@@ -7,7 +9,7 @@ instance_create(LightManager);
 //instance_create(UpgradeManager);
 instance_create(RoomManager);
 instance_create(ManagerManager);
-//show_debug_overlay(true);
+show_debug_overlay(true);
 window_set_size(display_get_width(),  display_get_height());
 window_set_position(0, 0);
 global.room_manager.room_goto_transition(main_menu, 0.01, 0.5, c_black, c_white);

@@ -84,7 +84,7 @@ function delayed_action(action, delay, args) {
 		}
 	}
 	delayer.func = action;
-	delayer.start(room_speed * delay);
+	delayer.start(game_get_speed(gamespeed_fps) * delay);
 }
 
 function conditional_action(action, condition) {
@@ -124,16 +124,16 @@ function instance_create_ui(object_id) {
 
 
 function alarm_ready(index) {
-	return alarm_get(index) == -1;	
+	return d_alarm_get(index) == undefined;	
 }
 
 function alarm_stop(index) {
-	alarm_set(index, -1);	
+	d_alarm_set(index, undefined);	
 }
 
 function alarm_pause(index) {
-	if (not alarm_ready(index) and alarm_get(index) > 0) {
-		alarm_set(index, alarm_get(index) + 1);
+	if (not alarm_ready(index) and d_alarm_get(index) > 0) {
+		d_alarm_set(index, d_alarm_get(index) + 1);
 	}
 }
 

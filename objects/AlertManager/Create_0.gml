@@ -1,9 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
+event_inherited();
 
 global.alert_manager = id;
-display_rate = 0.05 * room_speed;
-display_rate_variation = 0.05 * room_speed;
+display_rate = 0.05 * game_get_speed(gamespeed_fps);
+display_rate_variation = 0.05 * game_get_speed(gamespeed_fps);
 fade_after = 1; // seconds;
 fade = false;
 voice_clip = undefined;
@@ -17,7 +18,7 @@ function show_notification(message_string,  alert_sound, voice_clip) {
 	alarm_stop(2);
 	alarm_stop(1);
 	alarm_stop(0);
-	alarm_set(1, 0.5 * room_speed * audio_sound_length(alert_sound));
+	d_alarm_set(1, 0.5 * game_get_speed(gamespeed_fps) * audio_sound_length(alert_sound));
 	self.voice_clip = voice_clip;
 	fade = false;
 	image_alpha = 1;

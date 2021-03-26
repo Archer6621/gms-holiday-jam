@@ -1,5 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
+event_inherited();
 
 global.room_manager = id;
 transition_speed_out = 0.75;	// Transition speed OUT of CURRENT room
@@ -20,6 +21,6 @@ function room_goto_transition(room_id, out_length, in_length, out_color, in_colo
 	draw_color = draw_color_out;
 	room_to_go = room_id;
 	image_alpha = 0;
-	alarm_set(0, ceil(transition_speed_out * room_speed));
+	d_alarm_set(0, ceil(transition_speed_out * game_get_speed(gamespeed_fps)));
 	alarm_stop(1);
 }

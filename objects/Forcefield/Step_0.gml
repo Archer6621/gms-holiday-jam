@@ -49,7 +49,7 @@ if (instance_exists(base_a) and not base_a.behaviour_disabled) {
 		if (instance_exists(inst)) {
 			if (alarm_ready(0)) {
 				audio_play_sound_at(snd_hover, other.x, other.y, 0, 1000, 0, 2, 0, -1);
-				alarm_set(0, 5);
+				d_alarm_set(0, 5);
 			}
 			
 			with (inst) {
@@ -57,10 +57,10 @@ if (instance_exists(base_a) and not base_a.behaviour_disabled) {
 				var ang_diff = angle_difference(other.orientation, dir);
 				
 				if (ang_diff > 0) {
-					motion_add_m(other.orientation + 90, other.force);
+					d_motion_add_m(other.orientation + 90, other.force);
 				}
 				if (ang_diff < 0) {
-					motion_add_m(other.orientation - 90, other.force);	
+					d_motion_add_m(other.orientation - 90, other.force);	
 				}
 				
 			}

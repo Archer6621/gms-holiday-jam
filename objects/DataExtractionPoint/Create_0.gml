@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-
+event_inherited();
 data = 2;
 data_extracted = 0;
 extract_sound = noone;

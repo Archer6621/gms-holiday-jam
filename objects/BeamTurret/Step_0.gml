@@ -15,6 +15,6 @@ if (behaviour_disabled) {
 }
 
 if (not behaviour_disabled) {
-	var dts = 1 / room_speed;
-	speed = speed / (1 + dts * 2);	
+	var dts = 1 / game_get_speed(gamespeed_fps);
+	d_speed = d_speed / (1 + dts * 2);	
 }

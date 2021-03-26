@@ -18,4 +18,4 @@ p_friction = 0.000001;
 
 
 // Initial motion
-//motion_add(random(360), random(0.1));
+//d_motion_add(random(360), random(0.1));

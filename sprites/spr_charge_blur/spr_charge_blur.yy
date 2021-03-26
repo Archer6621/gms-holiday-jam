@@ -25,9 +25,9 @@
   "gridY": 0,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"edc9c1a2-35d5-4fca-92fc-3b6b1ec31c29","path":"sprites/spr_charge_blur/spr_charge_blur.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"edc9c1a2-35d5-4fca-92fc-3b6b1ec31c29","path":"sprites/spr_charge_blur/spr_charge_blur.yy",},"LayerId":{"name":"242cff16-0ac1-4c44-bc4f-343ee9200a6e","path":"sprites/spr_charge_blur/spr_charge_blur.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-        {"FrameId":{"name":"edc9c1a2-35d5-4fca-92fc-3b6b1ec31c29","path":"sprites/spr_charge_blur/spr_charge_blur.yy",},"LayerId":{"name":"7b51a9f7-90bd-4da5-b969-412f91bfb079","path":"sprites/spr_charge_blur/spr_charge_blur.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"edc9c1a2-35d5-4fca-92fc-3b6b1ec31c29","path":"sprites/spr_charge_blur/spr_charge_blur.yy",},"LayerId":{"name":"43c8d839-7c4b-4932-a128-5eb5625f684b","path":"sprites/spr_charge_blur/spr_charge_blur.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"edc9c1a2-35d5-4fca-92fc-3b6b1ec31c29","path":"sprites/spr_charge_blur/spr_charge_blur.yy",},"LayerId":{"name":"7b51a9f7-90bd-4da5-b969-412f91bfb079","path":"sprites/spr_charge_blur/spr_charge_blur.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"edc9c1a2-35d5-4fca-92fc-3b6b1ec31c29","path":"sprites/spr_charge_blur/spr_charge_blur.yy",},"LayerId":{"name":"242cff16-0ac1-4c44-bc4f-343ee9200a6e","path":"sprites/spr_charge_blur/spr_charge_blur.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_charge_blur","path":"sprites/spr_charge_blur/spr_charge_blur.yy",},"resourceVersion":"1.0","name":"edc9c1a2-35d5-4fca-92fc-3b6b1ec31c29","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {

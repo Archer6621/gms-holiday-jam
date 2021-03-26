@@ -1,5 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
+event_inherited();
 
 var w = surface_get_width(application_surface);
 var h = surface_get_height(application_surface);

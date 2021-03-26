@@ -7,4 +7,4 @@ if (instance_exists(global.hawk) and global.persistent_integrity < 0) {
 	global.hawk.integrity = global.persistent_integrity;
 	hawk_max_integrity = global.hawk.max_integrity;
 }
-global.dts = 1 / room_speed;
+global.dts = 1 / game_get_speed(gamespeed_fps);

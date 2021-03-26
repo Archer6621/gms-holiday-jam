@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-y -= supernova_speed / room_speed;
+y -= d(supernova_speed) / game_get_speed(gamespeed_fps);
 var cx = camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0])/2;
 audio_emitter_position(shockwave_emitter, cx, y, 0.0);
 audio_emitter_position(terminal_horizon_emitter, cx, y + terminal_horizon, 0.0);

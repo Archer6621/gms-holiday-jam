@@ -16,7 +16,7 @@ warn_interval = 0.25 / ds;
 hole_x = lengthdir_x(sprite_width * 0.4, image_angle);
 hole_y = lengthdir_y(sprite_width * 0.4, image_angle);
 
-alarm_set(0, ceil(random(0.25 * interval * room_speed)));
+d_alarm_set(0, ceil(random(0.25 * interval * game_get_speed(gamespeed_fps))));
 
 // Lighting
 normal_strength_scale = 0.5;

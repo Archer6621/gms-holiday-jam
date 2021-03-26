@@ -1,5 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
+event_inherited();
 
 base_a = instance_create(ForceFieldBase);
 base_b = instance_create(ForceFieldBase);

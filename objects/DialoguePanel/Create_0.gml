@@ -7,8 +7,8 @@ event_inherited();
 avatar_size = 96;
 avatar_padding = 12;
 image_blend = c_ltgray;
-display_rate = 0.04 * room_speed;
-display_rate_variation = 0.04 * room_speed;
+display_rate = 0.04 * game_get_speed(gamespeed_fps);
+display_rate_variation = 0.04 * game_get_speed(gamespeed_fps);
 
 avatar_sprite = spr_ability_placeholder;
 avatar_name = "";
@@ -23,7 +23,7 @@ function show_dialogue(from, message_string) {
 	avatar_name = from.name;
 	avatar_sprite = from.avatar;
 	highlight = true;
-	alarm_set(0, display_rate + random(display_rate_variation));
+	d_alarm_set(0, display_rate + random(display_rate_variation));
 }
 
 function finish() {

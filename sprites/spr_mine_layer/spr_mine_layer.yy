@@ -104,11 +104,6 @@
   "gridY": 0,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"334fd243-be6b-4282-9059-5b6c0c52263f","path":"sprites/spr_mine_layer/spr_mine_layer.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"334fd243-be6b-4282-9059-5b6c0c52263f","path":"sprites/spr_mine_layer/spr_mine_layer.yy",},"LayerId":{"name":"8ad6d391-8ddc-49dd-93c5-88f5e22afa6d","path":"sprites/spr_mine_layer/spr_mine_layer.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-        {"FrameId":{"name":"334fd243-be6b-4282-9059-5b6c0c52263f","path":"sprites/spr_mine_layer/spr_mine_layer.yy",},"LayerId":{"name":"","path":"",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-        {"FrameId":{"name":"334fd243-be6b-4282-9059-5b6c0c52263f","path":"sprites/spr_mine_layer/spr_mine_layer.yy",},"LayerId":{"name":"71480eb4-68b1-4d1e-ade4-fe41d775fdad","path":"sprites/spr_mine_layer/spr_mine_layer.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-        {"FrameId":{"name":"334fd243-be6b-4282-9059-5b6c0c52263f","path":"sprites/spr_mine_layer/spr_mine_layer.yy",},"LayerId":{"name":"","path":"",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-        {"FrameId":{"name":"334fd243-be6b-4282-9059-5b6c0c52263f","path":"sprites/spr_mine_layer/spr_mine_layer.yy",},"LayerId":{"name":"4fcce6d8-da8f-43ed-b875-2d68698f47fe","path":"sprites/spr_mine_layer/spr_mine_layer.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"334fd243-be6b-4282-9059-5b6c0c52263f","path":"sprites/spr_mine_layer/spr_mine_layer.yy",},"LayerId":{"name":"61d85bfc-0d3b-4194-88b9-fc19d614b1ec","path":"sprites/spr_mine_layer/spr_mine_layer.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_mine_layer","path":"sprites/spr_mine_layer/spr_mine_layer.yy",},"resourceVersion":"1.0","name":"334fd243-be6b-4282-9059-5b6c0c52263f","tags":[],"resourceType":"GMSpriteFrame",},
   ],

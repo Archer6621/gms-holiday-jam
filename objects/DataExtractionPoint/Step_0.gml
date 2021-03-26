@@ -33,7 +33,7 @@ if (instance_exists(global.hawk)) {
 				extraction_bar.label = new Label("DOWNLOADING...",  true);	
 			}
 		}
-		data_extracted += 1 / room_speed;	
+		data_extracted += d(1) / game_get_speed(gamespeed_fps);	
 	}
 	
 	if (hawk_dist > extraction_radius and prev_hawk_dist <= extraction_radius) {

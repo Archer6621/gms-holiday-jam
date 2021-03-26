@@ -1,5 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
+
 if (global.manager.won) {
 	global.game_manager.end_session_win();
 } else {

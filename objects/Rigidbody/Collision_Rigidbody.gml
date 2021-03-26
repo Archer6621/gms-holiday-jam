@@ -10,8 +10,8 @@ if (other.object_index==Hawk) {
 
 if (not ds_map_exists(collision_map, other.id)) {
 	audio_play_sound_at(col_1, x, y, 0, 1000, 0, 2, 0, 0);
-	rel_hspeed = other.hspeed - self.hspeed;
-	rel_vspeed = other.vspeed - self.vspeed;
+	rel_hspeed = other.d_hspeed - self.d_hspeed;
+	rel_vspeed = other.d_vspeed - self.d_vspeed;
 	var norm_x = self.x - other.x;
 	var norm_y = self.y - other.y;
 	factor = dot_product_normalized(rel_hspeed, rel_vspeed, norm_x, norm_y);
@@ -27,7 +27,7 @@ if (not ds_map_exists(collision_map, other.id)) {
 		// We have to resolve the entire collision here, because otherwise the collision will behave differently
 		// depending on the order of resolution
 		if (not stationary) {
-			motion_add(bounce_dir, elasticity * factor * (1 - ratio) * rel_speed);
+			d_motion_add(bounce_dir, elasticity * factor * (1 - ratio) * rel_speed);
 		}	
 		with (other) {
 			// Set all the variables correctly for debugging purposes
@@ -38,7 +38,7 @@ if (not ds_map_exists(collision_map, other.id)) {
 			rel_vspeed = -other.rel_vspeed;
 			bounce_dir = other.bounce_dir + 180;
 			if (not stationary) {
-				motion_add(self.bounce_dir, self.elasticity * self.factor * self.ratio * self.rel_speed);
+				d_motion_add(self.bounce_dir, self.elasticity * self.factor * self.ratio * self.rel_speed);
 			}
 			
 			// Need this check: it's possible for the other object to have destroyed its map already
@@ -50,6 +50,6 @@ if (not ds_map_exists(collision_map, other.id)) {
 } 
 if (not stationary) {
 	move_outside_all(bounce_dir, rel_speed);
-	motion_add(bounce_dir, 1 / room_speed);
+	d_motion_add(bounce_dir, d(1) / game_get_speed(gamespeed_fps));
 }
 collision_map[? other.id] = true;

@@ -41,13 +41,12 @@ if (global.upgrade_manager.emp_immunity_ability.unlocked) {
 // Override
 knock_out = function(amount) {	
 	if (alarm_ready(0)) {
-		
 		var rounded  = ceil(knockout_factor * amount * knockout_speed) / knockout_speed;
-		alarm_set(0, room_speed * rounded);
+		d_alarm_set(0, game_get_speed(gamespeed_fps) * rounded);
 		var bar = create_bar(id, 
 		function(inst_id) {return inst_id.alarm[0]}, 
 		function(inst_id) {return 0},
-		0, room_speed * rounded, 0, 35, 50, 10, [c_aqua], true, false,
+		0, game_get_speed(gamespeed_fps) * rounded, 0, 35, 50, 10, [c_aqua], true, false,
 		new Label("MALFUNCTION", true));
 		malfunction_sound = audio_play_sound(malfunction, 0, 1);
 		delayed_action(function(inst_id) {if (instance_exists(inst_id)){instance_destroy(inst_id)}}, rounded, [bar]);

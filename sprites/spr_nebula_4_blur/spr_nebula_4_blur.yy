@@ -25,9 +25,9 @@
   "gridY": 0,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"baf2578e-81dd-465c-8e09-d957604fb275","path":"sprites/spr_nebula_4_blur/spr_nebula_4_blur.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"baf2578e-81dd-465c-8e09-d957604fb275","path":"sprites/spr_nebula_4_blur/spr_nebula_4_blur.yy",},"LayerId":{"name":"da80a642-8a32-4f89-ae58-fe5b575f2efb","path":"sprites/spr_nebula_4_blur/spr_nebula_4_blur.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-        {"FrameId":{"name":"baf2578e-81dd-465c-8e09-d957604fb275","path":"sprites/spr_nebula_4_blur/spr_nebula_4_blur.yy",},"LayerId":{"name":"0b02203c-1610-47b8-b747-cab9c4d51faf","path":"sprites/spr_nebula_4_blur/spr_nebula_4_blur.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"baf2578e-81dd-465c-8e09-d957604fb275","path":"sprites/spr_nebula_4_blur/spr_nebula_4_blur.yy",},"LayerId":{"name":"c6868c89-db94-45aa-ae33-c8bf8b3ee5bb","path":"sprites/spr_nebula_4_blur/spr_nebula_4_blur.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"baf2578e-81dd-465c-8e09-d957604fb275","path":"sprites/spr_nebula_4_blur/spr_nebula_4_blur.yy",},"LayerId":{"name":"0b02203c-1610-47b8-b747-cab9c4d51faf","path":"sprites/spr_nebula_4_blur/spr_nebula_4_blur.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"baf2578e-81dd-465c-8e09-d957604fb275","path":"sprites/spr_nebula_4_blur/spr_nebula_4_blur.yy",},"LayerId":{"name":"da80a642-8a32-4f89-ae58-fe5b575f2efb","path":"sprites/spr_nebula_4_blur/spr_nebula_4_blur.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_nebula_4_blur","path":"sprites/spr_nebula_4_blur/spr_nebula_4_blur.yy",},"resourceVersion":"1.0","name":"baf2578e-81dd-465c-8e09-d957604fb275","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {

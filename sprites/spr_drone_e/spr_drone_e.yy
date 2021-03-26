@@ -104,9 +104,9 @@
   "gridY": 0,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"334fd243-be6b-4282-9059-5b6c0c52263f","path":"sprites/spr_drone_e/spr_drone_e.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"334fd243-be6b-4282-9059-5b6c0c52263f","path":"sprites/spr_drone_e/spr_drone_e.yy",},"LayerId":{"name":"8ad6d391-8ddc-49dd-93c5-88f5e22afa6d","path":"sprites/spr_drone_e/spr_drone_e.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-        {"FrameId":{"name":"334fd243-be6b-4282-9059-5b6c0c52263f","path":"sprites/spr_drone_e/spr_drone_e.yy",},"LayerId":{"name":"3a1eae58-7aed-4bb1-b659-6530e4d2c1bf","path":"sprites/spr_drone_e/spr_drone_e.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"334fd243-be6b-4282-9059-5b6c0c52263f","path":"sprites/spr_drone_e/spr_drone_e.yy",},"LayerId":{"name":"00beeb59-7fe9-4a76-8be4-cd14f0e29c4f","path":"sprites/spr_drone_e/spr_drone_e.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"334fd243-be6b-4282-9059-5b6c0c52263f","path":"sprites/spr_drone_e/spr_drone_e.yy",},"LayerId":{"name":"3a1eae58-7aed-4bb1-b659-6530e4d2c1bf","path":"sprites/spr_drone_e/spr_drone_e.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"334fd243-be6b-4282-9059-5b6c0c52263f","path":"sprites/spr_drone_e/spr_drone_e.yy",},"LayerId":{"name":"8ad6d391-8ddc-49dd-93c5-88f5e22afa6d","path":"sprites/spr_drone_e/spr_drone_e.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_drone_e","path":"sprites/spr_drone_e/spr_drone_e.yy",},"resourceVersion":"1.0","name":"334fd243-be6b-4282-9059-5b6c0c52263f","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {

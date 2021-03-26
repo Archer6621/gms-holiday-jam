@@ -8,7 +8,7 @@ if (proximity > 0.01) {
 	var cy = override ? y : camera_get_view_y(cam);
 	var pcx = par * cx;
 	var pcy = par * cy;
-	var dts = 1 / room_speed;
+	var dts = 1 / game_get_speed(gamespeed_fps);
 
 	rot += rotation_multiplier * dts * tile_rotation_dynamic;
 	col = merge_colour(c_white, depth_color, depth_blend);

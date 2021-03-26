@@ -1,5 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
+event_inherited();
 text = "";
 
 image_alpha = 0;
@@ -32,7 +33,7 @@ function set_hint() {
 	}
 	text = prefix + chosen;
 	
-	alarm_set(0, ceil(10 * string_length(text) * room_speed * 0.01));
+	d_alarm_set(0, ceil(10 * string_length(text) * game_get_speed(gamespeed_fps) * 0.01));
 	image_alpha = 0.2;
 }
 

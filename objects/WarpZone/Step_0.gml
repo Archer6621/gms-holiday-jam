@@ -12,7 +12,7 @@ if (instance_exists(global.hawk)) {
 		}
 	}
 	if (all_true(warp_conditions, exec)) {
-		alarm_set(0, 6 * room_speed);
+		d_alarm_set(0, 6 * game_get_speed(gamespeed_fps));
 		audio_play_sound_at(warp_hit, global.hawk.x, global.hawk.y, 0, 10000, 0, 2, 0, 0);
 		global.alert_manager.announce(snd_voice_warp_initiated);
 		

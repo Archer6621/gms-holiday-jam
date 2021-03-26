@@ -14,5 +14,5 @@ function initialize() {
 	light_radius = start_light_radius;
 	light_color = start_light_color;
 	light_intensity = start_light_intensity;
-	alarm_set(0, start_life_span * room_speed);
+	d_alarm_set(0, start_life_span * game_get_speed(gamespeed_fps));
 }

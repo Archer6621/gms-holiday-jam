@@ -9,19 +9,19 @@ if (not done()) {
 	var symbol = string_char_at(text_to_draw, string_length(text_to_draw));
 	
 	switch (symbol) {
-		case ",": 	alarm_set(0, 3 * display_rate + random(display_rate_variation)); 
+		case ",": 	d_alarm_set(0, 3 * display_rate + random(display_rate_variation)); 
 					break;
 					
-		case ".": 	alarm_set(0, 6 * display_rate + random(display_rate_variation)); 
+		case ".": 	d_alarm_set(0, 6 * display_rate + random(display_rate_variation)); 
 					break;
 					
-		case "?": 	alarm_set(0, 5 * display_rate + random(display_rate_variation)); 
-			break;
+		case "?": 	d_alarm_set(0, 5 * display_rate + random(display_rate_variation)); 
+					break;
 					
-		case "!": 	alarm_set(0, 4 * display_rate + random(display_rate_variation)); 
-			break;
+		case "!": 	d_alarm_set(0, 4 * display_rate + random(display_rate_variation)); 
+					break;
 					
-		default:	alarm_set(0, display_rate + random(display_rate_variation)); 
+		default:	d_alarm_set(0, 1 * display_rate + random(display_rate_variation)); 
 	}
 
 }

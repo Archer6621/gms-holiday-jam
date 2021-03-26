@@ -26,9 +26,9 @@
   "frames": [
     {"compositeImage":{"FrameId":{"name":"65aa7c0a-b305-4b6b-be44-9aaf3012e685","path":"sprites/spr_avatar_cpu/spr_avatar_cpu.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"65aa7c0a-b305-4b6b-be44-9aaf3012e685","path":"sprites/spr_avatar_cpu/spr_avatar_cpu.yy",},"LayerId":{"name":"eb719dad-e62c-4843-a105-ad6a272d98d2","path":"sprites/spr_avatar_cpu/spr_avatar_cpu.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-        {"FrameId":{"name":"65aa7c0a-b305-4b6b-be44-9aaf3012e685","path":"sprites/spr_avatar_cpu/spr_avatar_cpu.yy",},"LayerId":{"name":"b818889b-d945-4bd6-ba7f-f8b9dc4e3fd7","path":"sprites/spr_avatar_cpu/spr_avatar_cpu.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-        {"FrameId":{"name":"65aa7c0a-b305-4b6b-be44-9aaf3012e685","path":"sprites/spr_avatar_cpu/spr_avatar_cpu.yy",},"LayerId":{"name":"05e35e51-8da1-452f-9d6a-4758e0a0b4d4","path":"sprites/spr_avatar_cpu/spr_avatar_cpu.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"65aa7c0a-b305-4b6b-be44-9aaf3012e685","path":"sprites/spr_avatar_cpu/spr_avatar_cpu.yy",},"LayerId":{"name":"a8aade6a-1d6e-4bb4-add7-e5b9559015e6","path":"sprites/spr_avatar_cpu/spr_avatar_cpu.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"65aa7c0a-b305-4b6b-be44-9aaf3012e685","path":"sprites/spr_avatar_cpu/spr_avatar_cpu.yy",},"LayerId":{"name":"05e35e51-8da1-452f-9d6a-4758e0a0b4d4","path":"sprites/spr_avatar_cpu/spr_avatar_cpu.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"65aa7c0a-b305-4b6b-be44-9aaf3012e685","path":"sprites/spr_avatar_cpu/spr_avatar_cpu.yy",},"LayerId":{"name":"b818889b-d945-4bd6-ba7f-f8b9dc4e3fd7","path":"sprites/spr_avatar_cpu/spr_avatar_cpu.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_avatar_cpu","path":"sprites/spr_avatar_cpu/spr_avatar_cpu.yy",},"resourceVersion":"1.0","name":"65aa7c0a-b305-4b6b-be44-9aaf3012e685","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {

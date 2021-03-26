@@ -3,7 +3,7 @@
 event_inherited();
 if (not behaviour_disabled) {
 	with (other) {
-		motion_add_m(point_direction(other.x, other.y, x, y), 12);
+		d_motion_add_m(point_direction(other.x, other.y, x, y), 12);
 	}
 	instance_destroy();
 }

@@ -1,5 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
+event_inherited();
+print(alarm[0], d_alarm[0]);
+
+
 y = 1000;
 if (instance_exists(global.hawk)) {
 	if (global.endless) {

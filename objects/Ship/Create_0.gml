@@ -48,7 +48,7 @@ do_burst = false;
 function knock_out(amount) {	
 	if (alarm_ready(0)) {
 		var rounded  = ceil(knockout_factor * amount * knockout_speed) / knockout_speed;
-		alarm_set(0, room_speed * rounded);
+		d_alarm_set(0, game_get_speed(gamespeed_fps) * rounded);
 	}
 }
 

@@ -3,11 +3,11 @@
 
 if (current_message != display_message and alarm_ready(0)) {
 	randomize();
-	alarm_set(0, display_rate + random(display_rate_variation));
+	d_alarm_set(0, display_rate + random(display_rate_variation));
 }
 
 if (current_message == display_message and alarm_ready(2) and not fade) {
-	alarm_set(2, fade_after * room_speed);
+	d_alarm_set(2, fade_after * game_get_speed(gamespeed_fps));
 }
 
 if (image_alpha <= 0 and fade) {

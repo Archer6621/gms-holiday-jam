@@ -20,4 +20,4 @@ normal_strength_scale = 0.5;
 emission_strength_scale = 0.0;
 
 // Initial motion
-motion_add(random(360), random(0.5));
+d_motion_add(random(360), random(0.5));

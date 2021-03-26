@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-var life = alarm_get(0) / (room_speed * start_life_span);
+var life = d_alarm_get(0) / (game_get_speed(gamespeed_fps) * start_life_span);
 if (decay_function == noone) {
 	//light_radius = life * start_light_radius;
 	light_intensity = life;

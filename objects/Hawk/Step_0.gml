@@ -2,16 +2,16 @@
 // You can write your code in this editor
 
 
-var dts = 1 / room_speed;
+var dts = d(1) / game_get_speed(gamespeed_fps);
 
 if (warping) {
 	direction = 90;
 	image_angle = 90;
 	
 	if (warp_speeding) {
-	 speed += 0.01;	
+	 d_speed += 0.01;	
 	} else {
-	 speed = 0.9 * max_speed;	
+	 d_speed = 0.9 * max_speed;	
 	}
 	if (in_shockwave) {
 		integrity += dts;
@@ -31,7 +31,7 @@ if (in_shockwave) {
 }
 
 if (global.upgrade_manager.flamethrower_ability.unlocked) {
-	if (using_afterburner and global.frames % ceil(0.1 * room_speed) == 0) {
+	if (using_afterburner and global.frames % ceil(0.1 * game_get_speed(gamespeed_fps)) == 0) {
 		create_projectile(x, y, AfterburnerBurn);
 	}
 }

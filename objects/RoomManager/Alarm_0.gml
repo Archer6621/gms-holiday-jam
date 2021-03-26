@@ -4,5 +4,5 @@ audio_stop_all();
 
 room_goto(room_to_go);
 draw_color = draw_color_in;
-alarm_set(1, ceil(transition_speed_in * room_speed));
+d_alarm_set(1, ceil(transition_speed_in * game_get_speed(gamespeed_fps)));
 image_alpha = 1;

@@ -1,5 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
+event_inherited();
 
 // Shader uniform 
 u_h_shift = shader_get_uniform(hue_shift_shader, "h_shift");
@@ -64,7 +65,7 @@ override_surf = noone;
 
 function set_override(spd, dir, surf) {
 	override = true;
-	speed = spd;
+	d_speed = spd;
 	direction = dir;
 	override_surf = surf;
 }

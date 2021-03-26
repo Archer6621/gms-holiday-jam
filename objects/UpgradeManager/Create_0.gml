@@ -84,7 +84,7 @@ afterburner_ability.discovered = true;
 // Ability descriptions
 var core = string("CORE: ")
 var choice = string("CHOICE: ")
-afterburner_ability.description = core + "The afterburner can be used to get yourself out of sticky situations with a continuous speed boost, at the cost of energy. Press SHIFT to use it!";
+afterburner_ability.description = core + "The afterburner can be used to get yourself out of sticky situations with a continuous d_speed boost, at the cost of energy. Press SHIFT to use it!";
 	flamethrower_ability.description = choice + "The afterburner will burn objects in its wake, degrading their hull integrity.";
 	burst_ability.description = choice + "The afterburner's burst upgrade can deliver a short but powerful burst forward, at the cost of energy. Double tap SHIFT to use!";
 

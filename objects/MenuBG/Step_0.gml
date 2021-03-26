@@ -1,9 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
-speed = 5;
+d_speed = 5;
 direction = 90;
 with (EnvLayer) {
-	set_override(other.speed, other.direction, other.bg_surf);	
+	set_override(other.d_speed, other.direction, other.bg_surf);	
 }
 
 if (

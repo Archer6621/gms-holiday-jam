@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-var dts = 1 / room_speed;
+var dts = 1 / game_get_speed(gamespeed_fps);
 // Manage controls
 if (instance_exists(global.hawk) and not behaviour_disabled) {
 	if (consume_energy(dts)) {

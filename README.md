@@ -15,6 +15,7 @@ Some cool stuff it features in terms of tech:
 - A shader for the supernova effects, featuring some screen warping
 - Drones that behave a bit like boids
 - A basic physics system for rigidbody collisions written in GML (ignoring Gamemaker's built-in physics system for extra control)
+    - Now works with delta time, as does most of the game now
 - A nifty UI workflow that works with callbacks
 - A type-writer style dialogue system
 - Queued announcer system

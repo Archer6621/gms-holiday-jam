@@ -6,4 +6,3 @@ event_inherited();
 if (audio_exists(malfunction_sound)){
 	audio_stop_sound(malfunction_sound);	
 }
-print("poop");

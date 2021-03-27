@@ -1,6 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 event_inherited();
+global.ui_lock = false;
 
 global.room_manager = id;
 transition_speed_out = 0.75;	// Transition speed OUT of CURRENT room

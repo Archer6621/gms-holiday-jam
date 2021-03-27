@@ -44,7 +44,7 @@ knock_out = function(amount) {
 		var rounded  = ceil(knockout_factor * amount * knockout_speed) / knockout_speed;
 		d_alarm_set(0, game_get_speed(gamespeed_fps) * rounded);
 		var bar = create_bar(id, 
-		function(inst_id) {return inst_id.alarm[0]}, 
+		function(inst_id) {return inst_id.d_alarm[0]}, 
 		function(inst_id) {return 0},
 		0, game_get_speed(gamespeed_fps) * rounded, 0, 35, 50, 10, [c_aqua], true, false,
 		new Label("MALFUNCTION", true));

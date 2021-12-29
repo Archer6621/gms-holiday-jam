@@ -156,6 +156,20 @@ if (proximity > 0.01) {
 						//}
 
 						draw_surface_ext(surf, surface_x, surface_y, 1 / scaling,  1 / scaling, rot + rot_grid[g_x, g_y], col, proximity);	
+						if (motion_blur) {
+							var count = 8;
+							var step = 0.75;
+							view = instance_find(ViewController, 0);
+							if (instance_exists(view)) {
+									var m_offset_x = surface_x - 2*step*view.cvx;
+									var m_offset_y = surface_y - 2*step*view.cvy;
+									for (var iii = 1; iii < count; iii++) {
+										m_offset_x += step*view.cvx;
+										m_offset_y += step*view.cvy;
+										draw_surface_ext(surf, m_offset_x, m_offset_y, 1 / scaling,  1 / scaling, rot + rot_grid[g_x, g_y], col, proximity / sqrt(iii + 1));
+									}
+							}
+						}
 					}
 				}
 			}

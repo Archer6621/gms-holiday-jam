@@ -58,6 +58,7 @@ sat_shift_max = 0;
 shader_light_multiplier = 1.0;
 blend_mode = bm_normal;
 splat_blend_mode = bm_normal;
+motion_blur = false;
 
 // Overrides for other drawing tasks
 override = false;

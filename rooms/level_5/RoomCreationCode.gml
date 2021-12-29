@@ -28,14 +28,15 @@ create_env_layer({
 });
 
 create_env_layer({
-	sprites: [spr_dust], 
+	sprites: [spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_dust], 
 	parallax: 0.85, 
-	density: 0.00001,
-	scale_min: 0.1,
-	scale_max: 0.6,
+	density: 0.00006,
+	scale_min: 0.2,
+	scale_max: 0.8,
 	scale_desync: 0.4,
 	tile_rotation_dynamic: 1,
-	depth_color: c_white
+	depth_color: c_white,
+	motion_blur: true
 });
 
 

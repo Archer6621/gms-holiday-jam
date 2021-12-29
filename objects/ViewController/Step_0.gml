@@ -7,6 +7,12 @@ var cw = camera_get_view_width(view_camera[0]);
 var cx = camera_get_view_x(view_camera[0]);
 var cy = camera_get_view_y(view_camera[0]);
 
+
+cvx = cx - prev_cx;
+cvy = cy - prev_cy;
+prev_cx = cx;
+prev_cy = cy;
+
 if (instance_exists(global.hawk)) {
 	audio_listener_velocity(global.hawk.hspeed, global.hawk.vspeed, 0.0);
 	cx = clamp(global.hawk.x - cw/2, 0, room_width - cw);

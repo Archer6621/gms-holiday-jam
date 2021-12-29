@@ -16,3 +16,9 @@ endless = false;
 // UI inits
 margin = 40;
 ui_height = display_get_gui_height() - 2 * margin;
+
+// View speed
+cvx = 0;
+cvy = 0;
+prev_cx = 0;
+prev_cy = 0;

@@ -86,7 +86,7 @@ global.super_drone_engine_paticle = part_type_create();
 part_type_shape(global.super_drone_engine_paticle , pt_shape_flare);
 part_type_size(global.super_drone_engine_paticle , 0.5, 0.5, -0.01, 0.0);
 part_type_alpha2(global.super_drone_engine_paticle , 1.0, 0.0);
-part_type_color2(global.super_drone_engine_paticle ,  c_fuchsia, c_purple);
+part_type_color2(global.super_drone_engine_paticle ,  c_lime, c_green);
 part_type_life(global.super_drone_engine_paticle , 0.5 * game_get_speed(gamespeed_fps), 1 * game_get_speed(gamespeed_fps));
 
 global.emp_drone_engine_particle = part_type_create();
@@ -102,6 +102,14 @@ part_type_size(global.beam_drone_engine_particle , 0.5, 0.5, -0.01, 0.0);
 part_type_alpha2(global.beam_drone_engine_particle , 1.0, 0.0);
 part_type_color2(global.beam_drone_engine_particle ,  c_orange, c_yellow);
 part_type_life(global.beam_drone_engine_particle , 0.5 * game_get_speed(gamespeed_fps), 1 * game_get_speed(gamespeed_fps));
+
+global.mine_layer_engine_particle = part_type_create();
+part_type_shape(global.mine_layer_engine_particle , pt_shape_flare);
+part_type_size(global.mine_layer_engine_particle , 0.5, 0.5, -0.01, 0.0);
+part_type_alpha2(global.mine_layer_engine_particle , 1.0, 0.0);
+part_type_color2(global.mine_layer_engine_particle ,  c_fuchsia, c_purple);
+part_type_life(global.mine_layer_engine_particle , 0.5 * game_get_speed(gamespeed_fps), 1 * game_get_speed(gamespeed_fps));
+
 
 global.ash_particle = part_type_create();
 part_type_shape(global.ash_particle, pt_shape_flare);

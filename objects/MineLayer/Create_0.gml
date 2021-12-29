@@ -3,7 +3,7 @@
 
 // Inherit the parent event
 event_inherited();
-engine_trail_particle = global.super_drone_engine_paticle;
+engine_trail_particle = global.mine_layer_engine_particle;
 initialize_sound(mine_layer_engine, 1);
 create_following_light(id, c_purple, 100, 0.4);
 image_xscale = 2;
@@ -19,7 +19,7 @@ mines = [];
 
 function closest_mine_in_proximity() {
 	var min_inst = noone;
-	var min_dist = room_width;
+	var min_dist = 2 * room_width;
 	for (var i = 0; i < array_length(mines); i += 1) {
 		if (instance_exists(mines[i])) {
 			var dist = point_distance(x, y, mines[i].x, mines[i].y);

@@ -3,6 +3,47 @@
 if surface_exists(surf)
 {
 	draw_clear(c_black);
+	shader_set(threshold_shader);
+	surface_set_target(intermediate);
+	draw_clear(c_black);
+	//draw_surface_ext(surf, 0, 0);
+	draw_surface_ext(surf, 0, 0, 0.5, 0.5, 0, c_white, 1.0);
+	//surface_reset_target();
+	surface_reset_target();
+	shader_reset();
+	
+
+	//draw_surface_stretched(bloom_surf, 0, 0, display_get_gui_width(), display_get_gui_height());
+	
+	shader_set(bloom_shader);
+	surface_set_target(intermediate2);
+	//draw_clear(c_black);
+	texture_set_stage(bloom_sampler, surface_get_texture(intermediate));
+	//texture_set_stage(b_i_sampler, surface_get_texture(bloom_surf));
+	shader_set_uniform_i(u_bloom_h, 1);
+	//(c_black);
+	draw_surface(intermediate, 0, 0);
+	//draw_surface(bloom_surf, 0, 0);
+	surface_reset_target();
+	surface_set_target(bloom_surf);
+	texture_set_stage(bloom_sampler, surface_get_texture(intermediate2));
+	shader_set_uniform_i(u_bloom_h, 0);
+	draw_surface(intermediate2, 0, 0);
+	shader_reset();
+	//draw_surface_stretched(bloom_surf, 0, 0, display_get_gui_width(), display_get_gui_height());
+
+	//texture_set_stage(bloom_sampler, surface_get_texture(bloom_surf));
+	//texture_set_stage(b_i_sampler, surface_get_texture(bloom_surf));
+	//shader_set_uniform_i(u_bloom_h, 0);
+	//draw_surface(intermediate, 0, 0);
+	//draw_surface_stretched(bloom_surf, 0, 0, display_get_gui_width(), display_get_gui_height());
+	
+	
+	
+	surface_reset_target();
+	//draw_surface_stretched(surf, 0, 0, display_get_gui_width(), display_get_gui_height());
+
+	
 	shader_set(screen_shader);
 	with (SuperNova) {
 		var shockwave_pos = (y - camera_get_view_y(view_camera[0])) / camera_get_view_height(view_camera[0]);
@@ -12,7 +53,12 @@ if surface_exists(surf)
 	}
 	shader_set_uniform_f(u_frames, global.frames);
 	draw_surface_stretched(surf, 0, 0, display_get_gui_width(), display_get_gui_height());
+	gpu_set_blendmode(bm_add);
+	draw_surface_stretched(bloom_surf, 0, 0, display_get_gui_width(), display_get_gui_height());
+	gpu_set_blendmode(bm_normal);
+	
 	shader_reset();
+	
 	if (not global.endless) {
 		// UI
 		var pa = draw_get_alpha();

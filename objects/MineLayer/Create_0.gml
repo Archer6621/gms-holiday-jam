@@ -19,7 +19,7 @@ mines = [];
 
 function closest_mine_in_proximity() {
 	var min_inst = noone;
-	var min_dist = room_height;
+	var min_dist = room_width;
 	for (var i = 0; i < array_length(mines); i += 1) {
 		if (instance_exists(mines[i])) {
 			var dist = point_distance(x, y, mines[i].x, mines[i].y);

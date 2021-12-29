@@ -5,7 +5,7 @@
 if (not behaviour_disabled) {
 var mine_inst = closest_mine_in_proximity();
 	var deviation = angle_difference(image_angle, lay_direction);
-	if instance_exists(mine_inst) {
+	if (instance_exists(mine_inst)) {
 		if (deviation < 0) {
 			go_left = 1;	
 		}

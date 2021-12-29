@@ -60,7 +60,7 @@ create_env_layer({
 		create_env_layer(merge(nebula_params, {parallax: 0.5, density: 0.00010, scale_min: 3.5, scale_max: 6.5, tile_rotation_dynamic: 0.5, shaded: true})),
 		create_env_layer(merge(nebula_params, {parallax: 0.35, density: 0.00015, scale_min: 3, scale_max: 6, tile_rotation_dynamic: 0.25}))
 	] 
-	create_stage_volume([Asteroid, VolatileAsteroid, RedAsteroid, BeamDrone, EMPDrone, Drone, SuperDrone], 3000, infinity, 3000, 12, env_layers);
+	create_stage_volume([Asteroid, VolatileAsteroid, RedAsteroid, BeamDrone, EMPDrone, Drone, SuperDrone, MineLayer], 3000, infinity, 3000, 12, env_layers);
 }
 
 delayed_action(function() {global.alert_manager.queue_notification("YOU HAVE TO ENTER A PASSPHRASE ON YOUR KEYBOARD TO WARP! CAN YOU FIND IT?", critical_alert)}, 6.0);

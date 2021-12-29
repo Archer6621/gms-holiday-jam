@@ -7,7 +7,7 @@ global.endless = true;
 // Quick structs
 var nebula_params = {
 	sprites: [spr_nebula], 
-	parallax: 0.6, 
+	parallax: 0.65, 
 	density: 0.00005,
 	scale_min: 4,
 	scale_max: 7,
@@ -28,24 +28,37 @@ create_env_layer({
 });
 
 create_env_layer({
-	sprites: [spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_dust], 
+	sprites: [spr_star_l, spr_star_m], 
 	parallax: 0.85, 
-	density: 0.00006,
-	scale_min: 0.2,
-	scale_max: 0.8,
+	density: 0.00005,
+	scale_min: 0.9,
+	scale_max: 1.2,
 	scale_desync: 0.4,
 	tile_rotation_dynamic: 1,
-	depth_color: c_white,
+	depth_color: c_yellow,
 	motion_blur: true
 });
+
+
 
 
 // Stage
 {
 	var env_layers = [
 		create_env_layer(nebula_params),
-		create_env_layer(merge(nebula_params, {parallax: 0.45, density: 0.00010, scale_min: 3.5, scale_max: 6.5, tile_rotation_dynamic: 0.5, shaded: true})),
-		create_env_layer(merge(nebula_params, {parallax: 0.3, density: 0.00015, scale_min: 3, scale_max: 6, tile_rotation_dynamic: 0.25}))
+		create_env_layer({
+	sprites: [spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_star_l, spr_dust], 
+	parallax: 0.6, 
+	density: 0.0001,
+	scale_min: 0.1,
+	scale_max: 0.6,
+	scale_desync: 0.4,
+	tile_rotation_dynamic: 1,
+	depth_color: c_yellow,
+	motion_blur: true
+}),
+		create_env_layer(merge(nebula_params, {parallax: 0.5, density: 0.00010, scale_min: 3.5, scale_max: 6.5, tile_rotation_dynamic: 0.5, shaded: true})),
+		create_env_layer(merge(nebula_params, {parallax: 0.35, density: 0.00015, scale_min: 3, scale_max: 6, tile_rotation_dynamic: 0.25}))
 	] 
 	create_stage_volume([Asteroid, VolatileAsteroid, RedAsteroid, BeamDrone, EMPDrone, Drone, SuperDrone], 3000, infinity, 3000, 12, env_layers);
 }

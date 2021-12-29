@@ -140,6 +140,10 @@ if (proximity > 0.01) {
 			if (override) {
 				surface_set_target(override_surf);
 			}
+			view = instance_find(ViewController, 0);
+			if (instance_exists(view)) {
+				var cam_speed = point_distance(0,0,view.cvx,view.cvy); 
+			}
 			
 			for (var i_x = 0; i_x < x_count + 2; i_x += 1) {
 				for (var i_y = 0; i_y < y_count + 2; i_y += 1) {
@@ -157,16 +161,19 @@ if (proximity > 0.01) {
 
 						draw_surface_ext(surf, surface_x, surface_y, 1 / scaling,  1 / scaling, rot + rot_grid[g_x, g_y], col, proximity);	
 						if (motion_blur) {
+							
 							var count = 8;
-							var step = 0.75;
-							view = instance_find(ViewController, 0);
+							var step = 0.05;
+							
+
 							if (instance_exists(view)) {
+									
 									var m_offset_x = surface_x - 2*step*view.cvx;
 									var m_offset_y = surface_y - 2*step*view.cvy;
 									for (var iii = 1; iii < count; iii++) {
-										m_offset_x += step*view.cvx;
-										m_offset_y += step*view.cvy;
-										draw_surface_ext(surf, m_offset_x, m_offset_y, 1 / scaling,  1 / scaling, rot + rot_grid[g_x, g_y], col, proximity / sqrt(iii + 1));
+										m_offset_x += step*sqr(view.cvx)*sign(view.cvx);
+										m_offset_y += step*sqr(view.cvy)*sign(view.cvy);
+										draw_surface_ext(surf, m_offset_x, m_offset_y, 1 / scaling,  1 / scaling, rot + rot_grid[g_x, g_y], col, (cam_speed/15) * 0.75 * proximity / sqrt(iii + 1));
 									}
 							}
 						}

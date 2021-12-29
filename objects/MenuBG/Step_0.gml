@@ -15,5 +15,5 @@ surface_get_height(bg_surf) != surface_get_height(application_surface)
 
 randomize()
 if (random(1) > 0.95) {
-	create_decaying_light(random(window_get_width()), random(window_get_height()), merge_colour(choose(c_fuchsia, c_blue, c_aqua), c_white, 0.25), c_black, 100, 1.0, 10);
+	create_decaying_light(random(window_get_width()), random(window_get_height()), merge_colour(choose(c_fuchsia, c_blue, c_aqua), c_white, 0.25), c_black, 200, 1.0, 100);
 }

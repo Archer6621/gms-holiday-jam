@@ -1,5 +1,6 @@
 delta_init();
 delta_set_max_lag_compensation(20);
+audio_channel_num(256);
 instance_create(DeltaManager);
 // Wipe and create per sesssion
 //instance_create(GameManager);
